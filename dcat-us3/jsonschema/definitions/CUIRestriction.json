@@ -1,0 +1,47 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CUIRestriction",
+    "type": "object",
+    "properties": {
+        "@id": {
+            "type": "string",
+            "format": "iri"
+        },
+        "@type": {
+            "type": "string",
+            "default": "CUIRestriction"
+        },
+        "cuiBannerMarking": {
+            "$id": "http://data.resources.gov/ontology/dcat-us#cuiBannerMarking",
+            "title": "CUI banner marking",
+            "description": "CUI (Controlled Unclassified Information) banner marking is required for any unclassified information that is deemed sensitive and requires protection.",
+            "type": "string"
+        },
+        "designationIndicator": {
+            "$id": "http://data.resources.gov/ontology/dcat-us#designationIndicator",
+            "title": "CUI designation indicator",
+            "description": "Designation Indicator shows which agency made the document CUI",
+            "type": "string"
+        },
+        "requiredIndicatorPerAuthority": {
+            "$id": "http://data.resources.gov/ontology/dcat-us#requiredIndicatorPerAuthority",
+            "title": "required indicator per authority",
+            "description": "free text (e.g., text of the category description or the distribution statement)",
+            "oneOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ]
+        }
+    },
+    "required": [
+        "cuiBannerMarking",
+        "designationIndicator"
+    ]
+}

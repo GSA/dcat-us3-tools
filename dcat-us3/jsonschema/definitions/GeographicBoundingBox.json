@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "GeographicBoundingBox",
+    "type": "object",
+    "properties": {
+        "@id": {
+            "type": "string",
+            "format": "iri"
+        },
+        "@type": {
+            "type": "string",
+            "default": "GeographicBoundingBox"
+        },
+        "eastBoundingLongitude": {
+            "$id": "http://data.resources.gov/ontology/dcat-us#eastBoundingLongitude",
+            "title": "east bounding longitude",
+            "description": "East bound longitude in decimal degrees",
+            "type": "string"
+        },
+        "northBoundingLatitude": {
+            "$id": "http://data.resources.gov/ontology/dcat-us#northBoundingLatitude",
+            "title": "north bounding latitude",
+            "description": "North bound latitude in decimal degrees",
+            "type": "string"
+        },
+        "southBoundingLatitude": {
+            "$id": "http://data.resources.gov/ontology/dcat-us#southBoundingLatitude",
+            "title": "south bouding latitude",
+            "description": "South bound latitude in decimal degrees",
+            "type": "string"
+        },
+        "westBoundingLongitude": {
+            "$id": "http://data.resources.gov/ontology/dcat-us#westBoundingLongitude",
+            "title": "west bounding longitude",
+            "description": "West bound longitude in decimal degrees",
+            "type": "string"
+        }
+    },
+    "required": [
+        "eastBoundingLongitude",
+        "northBoundingLatitude",
+        "southBoundingLatitude",
+        "westBoundingLongitude"
+    ]
+}
