@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "dcat-us3-tools"
+version = "0.1.0"
+description = "Validation tools for DCAT-US schemas and SHACL shapes"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+jsonschema = "^4.24.0"
+pyshacl = "^0.30.1"
+rdflib = "^7.2.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+black = "^24.0.0"
+isort = "^5.13.0"
+flake8 = "^7.0.0"
+
+[tool.poetry.scripts]
+validate-examples = "validate_examples:main"
+validate-shacl = "validate_shacl:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
