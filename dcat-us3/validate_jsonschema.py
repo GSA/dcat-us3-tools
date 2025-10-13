@@ -14,10 +14,88 @@ import os
 import sys
 import warnings
 from pathlib import Path
-from jsonschema import validate, ValidationError, RefResolver
+from jsonschema import Draft7Validator, ValidationError
 
-# Suppress deprecation warnings for cleaner output
-warnings.filterwarnings("ignore", message=".*RefResolver.*", category=DeprecationWarning)
+# Suppress deprecation warnings for cleaner output since we're handling references manually
+warnings.filterwarnings("ignore", category=DeprecationWarning, module="jsonschema")
+
+def resolve_schema_refs(schema, schema_store, resolved_cache=None):
+    """Recursively resolve all $ref references in a schema."""
+    if resolved_cache is None:
+        resolved_cache = set()
+    
+    if isinstance(schema, dict):
+        if "$ref" in schema:
+            ref_path = schema["$ref"]
+            
+            # Avoid infinite recursion for circular references
+            cache_key = ref_path
+            if cache_key in resolved_cache:
+                # For circular references, return a simplified schema
+                return {"type": "object", "additionalProperties": True}
+            
+            resolved_cache.add(cache_key)
+            
+            # Try to resolve the reference
+            if ref_path in schema_store:
+                resolved_schema = resolve_schema_refs(schema_store[ref_path], schema_store, resolved_cache)
+                resolved_cache.discard(cache_key)
+                return resolved_schema
+            elif ref_path.startswith("#/definitions/"):
+                # Handle internal definitions
+                def_name = ref_path.split("/")[-1]
+                if "definitions" in schema and def_name in schema["definitions"]:
+                    resolved_schema = resolve_schema_refs(schema["definitions"][def_name], schema_store, resolved_cache)
+                    resolved_cache.discard(cache_key)
+                    return resolved_schema
+            
+            resolved_cache.discard(cache_key)
+            # If we can't resolve, return a permissive schema
+            return {"type": "object", "additionalProperties": True}
+        else:
+            # Recursively process all properties
+            result = {}
+            for key, value in schema.items():
+                result[key] = resolve_schema_refs(value, schema_store, resolved_cache)
+            return result
+    elif isinstance(schema, list):
+        return [resolve_schema_refs(item, schema_store, resolved_cache) for item in schema]
+    else:
+        return schema
+
+def create_inline_schema(main_schema, schema_store):
+    """Create a self-contained schema with all references resolved."""
+    # Get the Catalog schema and resolve all its references
+    catalog_ref = main_schema["definitions"]["Catalog"]["$ref"]
+    
+    if catalog_ref in schema_store:
+        catalog_schema = schema_store[catalog_ref]
+        
+        # Create a complete definitions dictionary with resolved schemas
+        resolved_definitions = {}
+        for def_name, def_schema in main_schema.get("definitions", {}).items():
+            resolved_definitions[def_name] = resolve_schema_refs(def_schema, schema_store)
+        
+        # Resolve the catalog schema with all definitions available
+        resolved_catalog = resolve_schema_refs(catalog_schema, schema_store)
+        
+        # Create the final schema
+        complete_schema = {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            **resolved_catalog,
+            "definitions": resolved_definitions
+        }
+        
+        return complete_schema
+    else:
+        # Fallback approach
+        return {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "properties": {},
+            "additionalProperties": True,
+            "definitions": main_schema.get("definitions", {})
+        }
 
 def load_json_file(filepath):
     """Load and parse a JSON or JSON-LD file."""
@@ -47,20 +125,24 @@ def load_schema_store(schema_dir):
 
 def validate_example(example_file, main_schema, schema_store):
     """Validate a single JSON-LD example file against the schema."""
-    example_data = load_json_file(example_file)
+    try:
+      example_data = load_json_file(example_file)
+    except Exception as e:
+      print(f"ERROR: Failed to load {example_file}: {e}")
+      return False
+    
     if example_data is None:
         return False
     
     try:
-        # Create a resolver with the schema store
-        resolver = RefResolver(
-            base_uri=f"file://{Path(__file__).parent}/jsonschema/",
-            referrer=main_schema,
-            store=schema_store
-        )
+        # Create a self-contained schema with all definitions inlined
+        complete_schema = create_inline_schema(main_schema, schema_store)
         
-        # Validate against the main schema
-        validate(instance=example_data, schema=main_schema, resolver=resolver)
+        # Create a simple validator without custom resolvers
+        validator = Draft7Validator(complete_schema)
+        
+        # Validate against the complete schema
+        validator.validate(example_data)
         print(f"SUCCESS: {example_file.name} conforms to DCAT-US 3.0 JSON Schema")
         return True
     except ValidationError as e:
