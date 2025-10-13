@@ -10,11 +10,9 @@
 | Dataset | `@id` | *(none)* | **NEW in 3.0** - IRI identifier for JSON-LD |
 | Dataset | `@type` | `@type` | 3.0 default "Dataset", 1.1 const "dcat:Dataset" |
 | Dataset | `title` | `title` | Same - required string in both |
-| Dataset | `description` | `description` | Same - required string, but 1.1 has maxLength 10000 |
 | Dataset | `publisher` | `publisher` | 3.0: Organization object/IRI, 1.1: organization object |
 | Dataset | `identifier` | `identifier` | **CHANGED**: 3.0 array of strings/null, 1.1 single required string |
-| Dataset | `keyword` | `keyword` | **CHANGED**: 3.0 single string/null, 1.1 required array of strings |
-| Dataset | `modified` | `modified` | **CHANGED**: 3.0 flexible date formats, 1.1 complex regex patterns |
+| Dataset | `keyword` | `keyword` | **CHANGED**: 3.0 single string/null, 1.1 required array of strings (yes, you are reading that correctly; DCAT-US3 keyword field only takes a single string according to the schema)|
 | Dataset | `contactPoint` | `contactPoint` | **CHANGED**: 3.0 array of Kind objects, 1.1 single vCard object |
 | **New Properties in DCAT-US 3.0** |
 | Dataset | `otherIdentifier` | *(none)* | **NEW** - Array of Identifier objects/IRIs |
@@ -72,6 +70,48 @@
 | Dataset | `spatial` | `spatial` | **CHANGED**: 3.0 array of Location objects, 1.1 string or GeoJSON |
 | Dataset | `temporal` | `temporal` | **CHANGED**: 3.0 array of PeriodOfTime objects, 1.1 string patterns |
 | Dataset | `theme` | `theme` | **CHANGED**: 3.0 array of Concept objects, 1.1 array of strings |
+| **Distribution Properties** |
+| Distribution | `@id` | *(none)* | **NEW in 3.0** - IRI identifier for JSON-LD |
+| Distribution | `@type` | `@type` | 3.0 default "Distribution", 1.1 const "dcat:Distribution" |
+| Distribution | `title` | `title` | Same - optional string, but 1.1 has minLength validation |
+| Distribution | `downloadURL` | `downloadURL` | **CHANGED**: 3.0 Resource object/IRI, 1.1 URI string |
+| Distribution | `accessURL` | `accessURL` | **CHANGED**: 3.0 Resource object/IRI, 1.1 URI string |
+| Distribution | `mediaType` | `mediaType` | **CHANGED**: 3.0 MediaType object/IRI, 1.1 string with regex |
+| Distribution | `format` | `format` | **CHANGED**: 3.0 MediaType object/IRI, 1.1 string |
+| Distribution | `conformsTo` | `conformsTo` | **CHANGED**: 3.0 array of Standard objects, 1.1 single URI |
+| Distribution | `describedBy` | `describedBy` | **CHANGED**: 3.0 Distribution object/IRI, 1.1 URI string |
+| **New Distribution Properties in DCAT-US 3.0** |
+| Distribution | `representationTechnique` | *(none)* | **NEW** - Concept for spatial representation type |
+| Distribution | `status` | *(none)* | **NEW** - Lifecycle status as Concept |
+| Distribution | `characterEncoding` | *(none)* | **NEW** - Array of character encoding strings |
+| Distribution | `accessService` | *(none)* | **NEW** - Array of DataService objects |
+| Distribution | `byteSize` | *(none)* | **NEW** - File size in bytes as string |
+| Distribution | `compressFormat` | *(none)* | **NEW** - Compression format as MediaType |
+| Distribution | `packageFormat` | *(none)* | **NEW** - Packaging format as MediaType |
+| Distribution | `spatialResolutionInMeters` | *(none)* | **NEW** - Spatial resolution string |
+| Distribution | `temporalResolution` | *(none)* | **NEW** - Temporal resolution string |
+| Distribution | `availability` | *(none)* | **NEW** - Availability as Concept |
+| Distribution | `accessRestriction` | *(none)* | **NEW** - Array of AccessRestriction objects |
+| Distribution | `cuiRestriction` | *(none)* | **NEW** - CUIRestriction object |
+| Distribution | `useRestriction` | *(none)* | **NEW** - Array of UseRestriction objects |
+| Distribution | `accessRights` | *(none)* | **NEW** - RightsStatement object |
+| Distribution | `descriptionMap` | *(none)* | **NEW** - Language map for description |
+| Distribution | `identifier` | *(none)* | **NEW** - Array of identifier strings |
+| Distribution | `issued` | *(none)* | **NEW** - Release date with flexible formats |
+| Distribution | `language` | *(none)* | **NEW** - Array of LinguisticSystem objects |
+| Distribution | `license` | *(none)* | **NEW** - LicenseDocument object |
+| Distribution | `modified` | *(none)* | **NEW** - Last modified date |
+| Distribution | `rights` | *(none)* | **NEW** - RightsStatement object |
+| Distribution | `titleMap` | *(none)* | **NEW** - Language map for title |
+| Distribution | `hasQualityMeasurement` | *(none)* | **NEW** - Array of QualityMeasurement objects |
+| Distribution | `page` | *(none)* | **NEW** - Array of documentation pages |
+| Distribution | `image` | *(none)* | **NEW** - Array of thumbnail images |
+| Distribution | `checksum` | *(none)* | **NEW** - Checksum object for verification |
+| **Distribution Properties Removed in DCAT-US 3.0** |
+| Distribution | *(none)* | `describedByType` | **REMOVED** - Media type for data dictionary |
+| **Distribution Required Fields** |
+| Distribution | Required: 0 fields | Required: 0 fields (conditional) | Both have no required fields, but 1.1 has conditional requirement |
+| Distribution | *(conditional)* | Required when `downloadURL` present: `mediaType` | **REMOVED** - 3.0 removes conditional requirement |
 | **Properties Removed in DCAT-US 3.0** |
 | Dataset | *(none)* | `bureauCode` | **REMOVED** - Federal bureau codes array |
 | Dataset | *(none)* | `describedByType` | **REMOVED** - Media type for data dictionary |
@@ -104,9 +144,22 @@
 
 ## Summary Statistics
 
+### Dataset Schema
 - **DCAT-US 3.0**: 65+ properties, 3 required fields
 - **DCAT-US 1.1**: ~30 properties, 8 required fields  
 - **New in 3.0**: 40+ new properties
 - **Removed in 3.0**: 9 properties specific to US federal requirements
 - **Transformed**: 12 properties with significant structural changes
+
+### Distribution Schema
+- **DCAT-US 3.0**: 30+ properties, 0 required fields
+- **DCAT-US 1.1**: 9 properties, 0 required fields (with conditional requirement)
+- **New in 3.0**: 25+ new properties
+- **Removed in 3.0**: 1 property (`describedByType`)
+- **Transformed**: 6 properties with significant structural changes
+
+### Overall Evolution
 - **Schema Evolution**: From federal-specific to international semantic web standard
+- **Flexibility**: DCAT-US 3.0 removes most validation constraints and conditional requirements
+- **Semantic Web**: Extensive use of object references and structured data types
+- **Internationalization**: Language maps throughout for multilingual support
