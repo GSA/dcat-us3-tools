@@ -1,0 +1,38 @@
+{
+  "@context": "./dcat-us3/dcat-us-3.0-context.jsonld",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "bureauCode": [
+    "339:00"
+  ],
+  "contactPoint": {
+    "fn": "Byung-IL Seo",
+    "hasEmail": "mailto:BSeo@CFTC.gov"
+  },
+  "publisher": {
+    "@type": "org:Organization",
+    "@id": "https://www.cftc.gov/",
+    "foaf:name": "U.S. Commodity Futures Trading Commission",
+    "skos:prefLabel": "U.S. Commodity Futures Trading Commission"
+  },
+  "title": "Cleared Margin Reports",
+  "describedBy": "https://www.cftc.gov/MarketReports/ClearedMarginReports/index.htm",
+  "description": "Derivatives clearing organizations (DCOs) are required to file daily reports on initial margin with the CFTC's Division of Clearing and Risk (DCR). Aggregate initial margin summary information for Chicago Mercantile Exchange (CME), ICE Clear Credit (ICC), ICE Clear US (ICUS), ICE Clear Europe (ICEU), LCH Ltd., and LCH SA is published below. The information will generally be updated within ten business days of the end of each month.",
+  "distribution": [
+    {
+      "accessURL": "https://www.cftc.gov/MarketReports/ClearedMarginReports/index.htm"
+    }
+  ],
+  "identifier": "cftc-dc7",
+  "keyword": [
+    "margin",
+    "exchange"
+  ],
+  "modified": {
+    "@type": "xsd:gYear",
+    "@value": "2021"
+  },
+  "programCode": [
+    "000:000"
+  ]
+}

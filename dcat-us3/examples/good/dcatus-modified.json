@@ -1,14 +1,20 @@
 {
-  "@context": "https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld",
+  "@context": "https://raw.githubusercontent.com/infopolicy/dcat-us/refs/heads/main/context/dcat-us-3.0.jsonld",
   "@id": "http://www.cftc.gov/data.json",
   "@type": "dcat:Catalog",
-  "conformsTo": "https://project-open-data.cio.gov/v1.1/schema",
-  "describedBy": "https://project-open-data.cio.gov/v1.1/schema/catalog.json",
+  "conformsTo": "https://raw.githubusercontent.com/infopolicy/dcat-us/refs/heads/main/schema/dcat-us-3.0.jsonld",
+  "describedBy": "https://raw.githubusercontent.com/infopolicy/dcat-us/refs/heads/main/schema/dcat-us-3.0.jsonld",
   "description": "A sample data catalog demonstrating DCAT-US 3.0 compliance",
-  "publisher": "some-publisher",
+  "publisher": {
+    "@type": "org:Organization",
+    "@id": "https://www.usa.gov/",
+    "foaf:name": "U.S. Government",
+    "skos:prefLabel": "U.S. Government"
+  },
   "title": "Example Catalog",
   "dataset": [
     {
+      "@type": "dcat:Dataset",
       "contactPoint": {
         "fn": "Harold W. Hild",
         "hasEmail": "mailto:hhild@CFTC.GOV"
@@ -20,7 +26,10 @@
           "accessURL": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm"
         }
       ],
-      "modified": "R/P1W",
+      "modified": {
+        "@type": "xsd:date",
+        "@value": "2021-04-26"
+      },
       "programCode": [
         "000:000"
       ],
@@ -45,6 +54,7 @@
       "spatial": "United States"
     },
     {
+      "@type": "dcat:Dataset",
       "accessLevel": "public",
       "bureauCode": [
         "339:00"
@@ -66,7 +76,10 @@
         "bpr",
         "banking"
       ],
-      "modified": "R/P1M",
+      "modified": {
+        "@type": "xsd:date",
+        "@value": "2021-04-26"
+      },
       "programCode": [
         "000:000"
       ],
@@ -79,6 +92,7 @@
       "title": "Bank Participation Reports"
     },
     {
+      "@type": "dcat:Dataset",
       "accessLevel": "public",
       "bureauCode": [
         "339:00"
@@ -99,7 +113,10 @@
         "cotton on call",
         "cotton on-call"
       ],
-      "modified": "R/P1W",
+      "modified": {
+        "@type": "xsd:date",
+        "@value": "2021-04-26"
+      },
       "programCode": [
         "000:000"
       ],
@@ -112,6 +129,7 @@
       "title": "Cotton On Call"
     },
     {
+      "@type": "dcat:Dataset",
       "accessLevel": "public",
       "bureauCode": [
         "339:00"
@@ -143,12 +161,16 @@
         }
       },
       "title": "Financial Data for FCMS",
-      "modified": "R/P1M",
+      "modified": {
+        "@type": "xsd:date",
+        "@value": "2021-04-26"
+      },
       "programCode": [
         "000:000"
       ]
     },
     {
+      "@type": "dcat:Dataset",
       "identifier": "cftc-dc5",
       "keyword": [
         "net positions",
@@ -170,7 +192,10 @@
           "accessURL": "https://www.cftc.gov/MarketReports/NetPositionChangesData/index.htm"
         }
       ],
-      "modified": "2011-06-30",
+      "modified": {
+        "@type": "xsd:date",
+        "@value": "2021-04-26"
+      },
       "programCode": [
         "000:000"
       ],
@@ -183,6 +208,7 @@
       "title": "Net Positions Changes Data"
     },
     {
+      "@type": "dcat:Dataset",
       "accessLevel": "public",
       "bureauCode": [
         "339:00"
@@ -204,7 +230,10 @@
         "swaps report",
         "swaps market"
       ],
-      "modified": "R/P1W",
+      "modified": {
+        "@type": "xsd:date",
+        "@value": "2021-04-26"
+      },
       "programCode": [
         "000:000"
       ],
@@ -216,6 +245,7 @@
       }
     },
     {
+      "@type": "dcat:Dataset",
       "accessLevel": "public",
       "bureauCode": [
         "339:00"
@@ -243,7 +273,10 @@
         "margin",
         "exchange"
       ],
-      "modified": "R/P1M",
+      "modified": {
+        "@type": "xsd:date",
+        "@value": "2021-04-26"
+      },
       "programCode": [
         "000:000"
       ]

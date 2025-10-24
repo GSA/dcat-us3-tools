@@ -10,6 +10,7 @@ python = "^3.9"
 jsonschema = "^4.24.0"
 pyshacl = "^0.30.1"
 rdflib = "^7.2.1"
+pyld = "^2.0.4"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
