@@ -1,5 +1,9 @@
 # DCAT-US 3.0 vs DCAT-US 1.1 Dataset Schema Comparison
 
+This compares the JSON Schema definitions, apples to apples.
+If JSON schema is no longer used in favor of SHACL, some of these representations
+are incorrect (for example, keyword).
+
 | Level | Field (DCAT-US 3.0) | Equivalent Field (DCAT-US 1.1) | Notes |
 |-------|---------------------|--------------------------------|-------|
 | **Schema Metadata** |
