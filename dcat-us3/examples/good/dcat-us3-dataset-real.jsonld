@@ -10,10 +10,9 @@
     "hasEmail": "mailto:BSeo@CFTC.gov"
   },
   "publisher": {
-    "@type": "org:Organization",
     "@id": "https://www.cftc.gov/",
-    "foaf:name": "U.S. Commodity Futures Trading Commission",
-    "skos:prefLabel": "U.S. Commodity Futures Trading Commission"
+    "name": "U.S. Commodity Futures Trading Commission",
+    "prefLabel": "U.S. Commodity Futures Trading Commission"
   },
   "title": "Cleared Margin Reports",
   "describedBy": "https://www.cftc.gov/MarketReports/ClearedMarginReports/index.htm",

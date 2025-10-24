@@ -621,7 +621,12 @@
         },
         "publisher": {
           "@id": "dcterms:publisher",
-          "@type": "@id"
+          "@type": "@id",
+          "@context": {
+            "@type": "org:Organization",
+            "name": "foaf:name",
+            "prefLabel": "skos:prefLabel"
+          }
         },
         "relation": {
           "@id": "dcterms:relation",

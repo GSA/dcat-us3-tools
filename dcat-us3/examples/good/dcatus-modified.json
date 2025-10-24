@@ -1,5 +1,5 @@
 {
-  "@context": "https://raw.githubusercontent.com/infopolicy/dcat-us/refs/heads/main/context/dcat-us-3.0.jsonld",
+  "@context": "./dcat-us3/dcat-us-3.0-context.jsonld",
   "@id": "http://www.cftc.gov/data.json",
   "@type": "dcat:Catalog",
   "conformsTo": "https://raw.githubusercontent.com/infopolicy/dcat-us/refs/heads/main/schema/dcat-us-3.0.jsonld",
@@ -34,10 +34,9 @@
         "000:000"
       ],
       "publisher": {
+        "@id": "https://www.cftc.gov/",
         "name": "U.S. Commodity Futures Trading Commission",
-        "subOrganizationOf": {
-          "name": "U.S. Government"
-        }
+        "prefLabel": "U.S. Commodity Futures Trading Commission"
       },
       "title": "Commitment of Traders",
       "accessLevel": "public",
@@ -84,10 +83,9 @@
         "000:000"
       ],
       "publisher": {
+        "@id": "https://www.cftc.gov/",
         "name": "U.S. Commodity Futures Trading Commission",
-        "subOrganizationOf": {
-          "name": "U.S. Government"
-        }
+        "prefLabel": "U.S. Commodity Futures Trading Commission"
       },
       "title": "Bank Participation Reports"
     },
@@ -121,10 +119,9 @@
         "000:000"
       ],
       "publisher": {
+        "@id": "https://www.cftc.gov/",
         "name": "U.S. Commodity Futures Trading Commission",
-        "subOrganizationOf": {
-          "name": "U.S. Government"
-        }
+        "prefLabel": "U.S. Commodity Futures Trading Commission"
       },
       "title": "Cotton On Call"
     },
@@ -155,10 +152,9 @@
         "futures commission merchant"
       ],
       "publisher": {
+        "@id": "https://www.cftc.gov/",
         "name": "U.S. Commodity Futures Trading Commission",
-        "subOrganizationOf": {
-          "name": "U.S. Government"
-        }
+        "prefLabel": "U.S. Commodity Futures Trading Commission"
       },
       "title": "Financial Data for FCMS",
       "modified": {
@@ -200,10 +196,9 @@
         "000:000"
       ],
       "publisher": {
+        "@id": "https://www.cftc.gov/",
         "name": "U.S. Commodity Futures Trading Commission",
-        "subOrganizationOf": {
-          "name": "U.S. Government"
-        }
+        "prefLabel": "U.S. Commodity Futures Trading Commission"
       },
       "title": "Net Positions Changes Data"
     },
@@ -238,10 +233,9 @@
         "000:000"
       ],
       "publisher": {
+        "@id": "https://www.cftc.gov/",
         "name": "U.S. Commodity Futures Trading Commission",
-        "subOrganizationOf": {
-          "name": "U.S. Government"
-        }
+        "prefLabel": "U.S. Commodity Futures Trading Commission"
       }
     },
     {
@@ -255,10 +249,9 @@
         "hasEmail": "mailto:BSeo@CFTC.gov"
       },
       "publisher": {
+        "@id": "https://www.cftc.gov/",
         "name": "U.S. Commodity Futures Trading Commission",
-        "subOrganizationOf": {
-          "name": "U.S. Government"
-        }
+        "prefLabel": "U.S. Commodity Futures Trading Commission"
       },
       "title": "Cleared Margin Reports",
       "describedBy": "https://www.cftc.gov/MarketReports/ClearedMarginReports/index.htm",
