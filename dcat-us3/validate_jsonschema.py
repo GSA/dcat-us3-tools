@@ -16,7 +16,40 @@ import warnings
 import re
 from pathlib import Path
 from collections import defaultdict
+from urllib.parse import urljoin
+import requests
 from jsonschema import Draft7Validator, ValidationError
+from referencing import Registry, Resource
+from referencing.jsonschema import DRAFT7
+
+# Base URL for the DCAT-US 3.0 JSON Schema files
+SCHEMA_BASE_URL = "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/"
+SCHEMA_ROOT_URL = SCHEMA_BASE_URL + "dcat_us_3.0.0_schema.json"
+
+# Cache for fetched schemas
+_schema_cache = {}
+
+
+def fetch_schema(url: str) -> dict:
+    """Fetch a JSON schema from a URL with caching."""
+    if url in _schema_cache:
+        return _schema_cache[url]
+    
+    try:
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
+        schema = response.json()
+        _schema_cache[url] = schema
+        return schema
+    except requests.RequestException as e:
+        raise RuntimeError(f"Failed to fetch schema from {url}: {e}")
+
+
+def retrieve_from_url(uri: str):
+    """Retrieve a schema resource from a URL for the referencing library."""
+    schema = fetch_schema(uri)
+    return Resource.from_contents(schema, default_specification=DRAFT7)
+
 
 def load_json_file(filepath):
     """Load and parse a JSON or JSON-LD file."""
@@ -26,6 +59,77 @@ def load_json_file(filepath):
     except (json.JSONDecodeError, FileNotFoundError) as e:
         print(f"ERROR: Failed to load {filepath}: {e}")
         return None
+
+
+def remove_schema_ids(obj):
+    """
+    Recursively remove $id properties from a schema object.
+    
+    The $id property changes the base URI for JSON Pointer resolution,
+    which breaks #/definitions/... references in newer jsonschema versions.
+    Removing them allows references to resolve from the root schema.
+    
+    Note: This only removes $id from nested objects, not the root $schema.
+    """
+    if isinstance(obj, dict):
+        result = {}
+        for key, value in obj.items():
+            if key == "$id":
+                continue  # Skip $id properties
+            result[key] = remove_schema_ids(value)
+        return result
+    elif isinstance(obj, list):
+        return [remove_schema_ids(item) for item in obj]
+    else:
+        return obj
+
+
+def build_registry_with_remote_schemas() -> tuple[dict, Registry]:
+    """
+    Fetch the root schema and all referenced definition schemas from GitHub.
+    
+    Returns a tuple of (root_schema, registry) where the registry contains
+    all the definition schemas needed for $ref resolution.
+    """
+    print(f"  Fetching root schema from {SCHEMA_ROOT_URL}")
+    root_schema = fetch_schema(SCHEMA_ROOT_URL)
+    
+    # Build a list of all definition URLs we need to fetch
+    definitions = root_schema.get("definitions", {})
+    resources = []
+    
+    for def_name, def_value in definitions.items():
+        if "$ref" in def_value:
+            ref_path = def_value["$ref"]
+            # Convert relative path to absolute URL
+            def_url = urljoin(SCHEMA_BASE_URL, ref_path)
+            print(f"  Fetching {def_name} from {def_url}")
+            
+            try:
+                def_schema = fetch_schema(def_url)
+                # Remove $id properties that break reference resolution
+                def_schema = remove_schema_ids(def_schema)
+                resource = Resource.from_contents(def_schema, default_specification=DRAFT7)
+                resources.append((def_url, resource))
+            except Exception as e:
+                print(f"  WARNING: Failed to fetch {def_name}: {e}")
+    
+    # Create registry with all fetched schemas
+    registry = Registry().with_resources(resources)
+    
+    # Now rewrite the root schema to use absolute URLs for $ref
+    rewritten_definitions = {}
+    for def_name, def_value in definitions.items():
+        if "$ref" in def_value:
+            ref_path = def_value["$ref"]
+            def_url = urljoin(SCHEMA_BASE_URL, ref_path)
+            rewritten_definitions[def_name] = {"$ref": def_url}
+        else:
+            rewritten_definitions[def_name] = def_value
+    
+    root_schema["definitions"] = rewritten_definitions
+    
+    return root_schema, registry
 
 def get_format_from_message(validation_msg: str) -> str:
     """Extract the format/rule from validation error message."""
@@ -156,8 +260,18 @@ def format_validation_errors(grouped_errors):
     
     return formatted_errors
 
-def validate_example(example_file, main_schema):
-    """Validate a single JSON-LD example file against the schema."""
+def validate_example(example_file, main_schema, registry, expect_valid=True):
+    """Validate a single JSON-LD example file against the schema.
+    
+    Args:
+        example_file: Path to the JSON-LD file
+        main_schema: The JSON schema to validate against
+        registry: The referencing Registry for resolving $ref references
+        expect_valid: If True, file should pass validation. If False, file should fail.
+    
+    Returns:
+        True if result matches expectation, False otherwise
+    """
     try:
         example_data = load_json_file(example_file)
     except Exception as e:
@@ -168,29 +282,42 @@ def validate_example(example_file, main_schema):
         return False
     
     try:
-        # Create validator
-        validator = Draft7Validator(main_schema)
+        # Create validator with registry for $ref resolution
+        validator = Draft7Validator(main_schema, registry=registry)
         
         # Collect all validation errors
         all_errors = collect_all_validation_errors(validator, example_data)
         
-        if not all_errors:
-            print(f"✅ SUCCESS: {example_file.name} conforms to DCAT-US 3.0 JSON Schema")
-            return True
+        is_valid = len(all_errors) == 0
+        result_matches_expectation = is_valid == expect_valid
+        
+        if is_valid:
+            if expect_valid:
+                print(f"✅ PASS: {example_file.name} is valid (as expected)")
+            else:
+                print(f"❌ UNEXPECTED: {example_file.name} is valid but expected to be INVALID")
+            return result_matches_expectation
+        
+        # File has validation errors
+        if expect_valid:
+            # Expected valid but got errors - this is a failure
+            print(f"❌ UNEXPECTED: {example_file.name} is invalid but expected to be VALID")
+            print(f"   Found {len(all_errors)} validation issue(s):")
+        else:
+            # Expected invalid and got errors - this is correct
+            print(f"✅ PASS: {example_file.name} is invalid (as expected)")
+            print(f"   Found {len(all_errors)} validation issue(s):")
         
         # Group and format errors
         grouped_errors = group_errors_by_field(all_errors)
         formatted_errors = format_validation_errors(grouped_errors)
         
-        print(f"❌ FAILURE: {example_file.name} does not conform to DCAT-US 3.0 JSON Schema")
-        print(f"   Found {len(all_errors)} validation issue(s) across {len(grouped_errors)} field(s):")
         print()
-        
         for i, error_msg in enumerate(formatted_errors, 1):
             print(f"   {i:2d}. {error_msg}")
         
         print()
-        return False
+        return result_matches_expectation
         
     except Exception as e:
         print(f"ERROR: Failed to validate {example_file.name}: {e}")
@@ -209,16 +336,16 @@ def main():
     # Set up paths
     script_dir = Path(__file__).parent
     examples_dir = script_dir / "examples"
-    schema_dir = script_dir / "jsonschema"
-    main_schema_path = schema_dir / "dcat-us3.0-expanded-schema.json"
     
-    # Load main schema
-    print("Loading schemas...")
-    main_schema = load_json_file(main_schema_path)
-    
-    if main_schema is None:
-        print("ERROR: Failed to load main schema")
+    # Load schemas from GitHub
+    print("Loading schemas from GitHub...")
+    try:
+        main_schema, registry = build_registry_with_remote_schemas()
+    except Exception as e:
+        print(f"ERROR: Failed to load schemas: {e}")
         sys.exit(1)
+    
+    print("Schemas loaded successfully.\n")
     
     # Check for command-line arguments for single file validation
     if len(sys.argv) == 2:
@@ -230,48 +357,71 @@ def main():
             sys.exit(1)
         
         print(f"\n=== VALIDATION RESULTS FOR {jsonld_file} ===")
-        success = validate_example(jsonld_file, main_schema)
+        success = validate_example(jsonld_file, main_schema, registry)
         sys.exit(0 if success else 1)
     elif len(sys.argv) > 2:
         print("ERROR: Too many arguments provided")
         print(__doc__)
         sys.exit(1)
     
-    # Find all JSON-LD example files
-    if not examples_dir.exists():
-        print(f"ERROR: Examples directory not found: {examples_dir}")
+    # Find all JSON-LD example files in good/ and bad/ subdirectories
+    good_dir = examples_dir / "good"
+    bad_dir = examples_dir / "bad"
+    
+    if not good_dir.exists() and not bad_dir.exists():
+        print(f"ERROR: Neither 'good' nor 'bad' subdirectory found in {examples_dir}")
         sys.exit(1)
     
-    jsonld_files = list(examples_dir.glob("*.jsonld")) + list(examples_dir.glob("*.json"))
-    if not jsonld_files:
-        print(f"WARNING: No JSON-LD files found in {examples_dir}")
+    good_files = []
+    bad_files = []
+    
+    if good_dir.exists():
+        good_files = list(good_dir.glob("*.jsonld")) + list(good_dir.glob("*.json"))
+    
+    if bad_dir.exists():
+        bad_files = list(bad_dir.glob("*.jsonld")) + list(bad_dir.glob("*.json"))
+    
+    total_files = len(good_files) + len(bad_files)
+    if total_files == 0:
+        print(f"WARNING: No JSON-LD files found in {examples_dir}/good or {examples_dir}/bad")
         sys.exit(0)
     
-    print(f"Found {len(jsonld_files)} JSON-LD example files")
+    print(f"Found {len(good_files)} 'good' (expected valid) and {len(bad_files)} 'bad' (expected invalid) example files")
     print("=" * 60)
     
     # Validate each example
-    success_count = 0
-    failure_count = 0
+    pass_count = 0
+    fail_count = 0
     
-    for example_file in sorted(jsonld_files):
-        if validate_example(example_file, main_schema):
-            success_count += 1
-        else:
-            failure_count += 1
-        print()  # Add spacing between results
+    # Validate "good" examples (expected to be valid)
+    if good_files:
+        print("\n--- Validating 'good' examples (expected to be VALID) ---\n")
+        for example_file in sorted(good_files):
+            if validate_example(example_file, main_schema, registry, expect_valid=True):
+                pass_count += 1
+            else:
+                fail_count += 1
+    
+    # Validate "bad" examples (expected to be invalid)
+    if bad_files:
+        print("\n--- Validating 'bad' examples (expected to be INVALID) ---\n")
+        for example_file in sorted(bad_files):
+            if validate_example(example_file, main_schema, registry, expect_valid=False):
+                pass_count += 1
+            else:
+                fail_count += 1
     
     # Summary
     print("=" * 60)
     print("JSON SCHEMA VALIDATION SUMMARY:")
-    print(f"  Total files processed: {len(jsonld_files)}")
-    print(f"  Successful validations: {success_count}")
-    print(f"  Failed validations: {failure_count}")
+    print(f"  Total files processed: {total_files}")
+    print(f"  Results matching expectations: {pass_count}")
+    print(f"  Results NOT matching expectations: {fail_count}")
     
-    if failure_count > 0:
+    if fail_count > 0:
         sys.exit(1)
     else:
-        print("All validations passed successfully")
+        print("\nAll validations matched expectations!")
 
 if __name__ == "__main__":
     main()
