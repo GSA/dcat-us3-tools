@@ -38,7 +38,8 @@
       "description": "The indication of whether or not there are access restrictions on the data.",
       "oneOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json,"description": "inline description of Concept"
+          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+          "description": "inline description of Concept"
         },
         {
           "type": "string",
@@ -58,7 +59,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json,"description": "inline description of Concept"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+              "description": "inline description of Concept"
             },
             {
               "type": "string",

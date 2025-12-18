@@ -17,7 +17,8 @@
       "description": "Represents the expected data type for the metric's observed value (e.g., xsd:boolean, xsd:double etc...)",
       "oneOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/anySimpleType.json,"description": "inline description of anySimpleType"
+          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/anySimpleType.json",
+          "description": "inline description of anySimpleType"
         },
         {
           "type": "string",
@@ -32,7 +33,8 @@
       "description": "Represents the dimensions a quality metric, certificate and annotation allow a measurement of.",
       "oneOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dimension.json,"description": "inline description of Dimension"
+          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dimension.json",
+          "description": "inline description of Dimension"
         },
         {
           "type": "string",

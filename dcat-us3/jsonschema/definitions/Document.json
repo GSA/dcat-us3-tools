@@ -53,7 +53,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/MediaType.json,"description": "inline description of MediaType"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/MediaType.json",
+                "description": "inline description of MediaType"
               },
               {
                 "type": "string",
@@ -112,7 +113,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Standard.json,"description": "inline description of Standard"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Standard.json",
+                "description": "inline description of Standard"
               },
               {
                 "type": "string",
@@ -137,7 +139,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Organization.json,"description": "inline description of Organization"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Organization.json",
+                "description": "inline description of Organization"
               },
               {
                 "type": "string",
@@ -226,7 +229,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Organization.json,"description": "inline description of Organization"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Organization.json",
+              "description": "inline description of Organization"
             },
             {
               "type": "string",
@@ -262,7 +266,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json,"description": "inline description of Concept"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+              "description": "inline description of Concept"
             },
             {
               "type": "string",

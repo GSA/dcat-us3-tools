@@ -22,7 +22,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json,"description": "inline description of Concept"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+              "description": "inline description of Concept"
             },
             {
               "type": "string",
@@ -44,7 +45,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json,"description": "inline description of Concept"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+              "description": "inline description of Concept"
             },
             {
               "type": "string",
@@ -84,7 +86,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/DataService.json,"description": "inline description of DataService"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/DataService.json",
+                "description": "inline description of DataService"
               },
               {
                 "type": "string",
@@ -107,7 +110,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json,"description": "inline description of Resource"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json",
+              "description": "inline description of Resource"
             },
             {
               "type": "string",
@@ -142,7 +146,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/MediaType.json,"description": "inline description of MediaType"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/MediaType.json",
+              "description": "inline description of MediaType"
             },
             {
               "type": "string",
@@ -164,7 +169,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json,"description": "inline description of Resource"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json",
+              "description": "inline description of Resource"
             },
             {
               "type": "string",
@@ -186,7 +192,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/MediaType.json,"description": "inline description of MediaType"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/MediaType.json",
+              "description": "inline description of MediaType"
             },
             {
               "type": "string",
@@ -208,7 +215,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/MediaType.json,"description": "inline description of MediaType"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/MediaType.json",
+              "description": "inline description of MediaType"
             },
             {
               "type": "string",
@@ -256,7 +264,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json,"description": "inline description of Concept"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+              "description": "inline description of Concept"
             },
             {
               "type": "string",
@@ -280,7 +289,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/AccessRestriction.json,"description": "inline description of AccessRestriction"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/AccessRestriction.json",
+                "description": "inline description of AccessRestriction"
               },
               {
                 "type": "string",
@@ -303,7 +313,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/CUIRestriction.json,"description": "inline description of CUIRestriction"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/CUIRestriction.json",
+              "description": "inline description of CUIRestriction"
             },
             {
               "type": "string",
@@ -325,7 +336,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Distribution.json,"description": "inline description of Distribution"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Distribution.json",
+              "description": "inline description of Distribution"
             },
             {
               "type": "string",
@@ -349,7 +361,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/UseRestriction.json,"description": "inline description of UseRestriction"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/UseRestriction.json",
+                "description": "inline description of UseRestriction"
               },
               {
                 "type": "string",
@@ -372,7 +385,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/RightsStatement.json,"description": "inline description of RightsStatement"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/RightsStatement.json",
+              "description": "inline description of RightsStatement"
             },
             {
               "type": "string",
@@ -396,7 +410,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Standard.json,"description": "inline description of Standard"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Standard.json",
+                "description": "inline description of Standard"
               },
               {
                 "type": "string",
@@ -440,7 +455,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/MediaType.json,"description": "inline description of MediaType"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/MediaType.json",
+              "description": "inline description of MediaType"
             },
             {
               "type": "string",
@@ -509,7 +525,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/LinguisticSystem.json,"description": "inline description of LinguisticSystem"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/LinguisticSystem.json",
+                "description": "inline description of LinguisticSystem"
               },
               {
                 "type": "string",
@@ -532,7 +549,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/LicenseDocument.json,"description": "inline description of LicenseDocument"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/LicenseDocument.json",
+              "description": "inline description of LicenseDocument"
             },
             {
               "type": "string",
@@ -583,7 +601,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/RightsStatement.json,"description": "inline description of RightsStatement"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/RightsStatement.json",
+              "description": "inline description of RightsStatement"
             },
             {
               "type": "string",
@@ -628,7 +647,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/QualityMeasurement.json,"description": "inline description of QualityMeasurement"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/QualityMeasurement.json",
+                "description": "inline description of QualityMeasurement"
               },
               {
                 "type": "string",
@@ -653,7 +673,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Document.json,"description": "inline description of Document"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Document.json",
+                "description": "inline description of Document"
               },
               {
                 "type": "string",
@@ -678,7 +699,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/ImageObject.json,"description": "inline description of ImageObject"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/ImageObject.json",
+                "description": "inline description of ImageObject"
               },
               {
                 "type": "string",
@@ -701,7 +723,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Checksum.json,"description": "inline description of Checksum"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Checksum.json",
+              "description": "inline description of Checksum"
             },
             {
               "type": "string",

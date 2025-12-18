@@ -24,7 +24,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Kind.json,"description": "inline description of Kind"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Kind.json",
+                "description": "inline description of Kind"
               },
               {
                 "type": "string",
@@ -47,7 +48,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json,"description": "inline description of Dataset"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+              "description": "inline description of Dataset"
             },
             {
               "type": "string",
@@ -69,7 +71,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json,"description": "inline description of Dataset"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+              "description": "inline description of Dataset"
             },
             {
               "type": "string",
@@ -93,7 +96,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json,"description": "inline description of Dataset"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+                "description": "inline description of Dataset"
               },
               {
                 "type": "string",
@@ -116,7 +120,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Frequency.json,"description": "inline description of Frequency"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Frequency.json",
+              "description": "inline description of Frequency"
             },
             {
               "type": "string",
@@ -210,7 +215,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Agent.json,"description": "inline description of Agent"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Agent.json",
+              "description": "inline description of Agent"
             },
             {
               "type": "string",
@@ -234,7 +240,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Location.json,"description": "inline description of Location"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Location.json",
+                "description": "inline description of Location"
               },
               {
                 "type": "string",
@@ -259,7 +266,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/PeriodOfTime.json,"description": "inline description of PeriodOfTime"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/PeriodOfTime.json",
+                "description": "inline description of PeriodOfTime"
               },
               {
                 "type": "string",

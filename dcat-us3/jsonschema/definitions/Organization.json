@@ -30,7 +30,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Organization.json,"description": "inline description of Organization"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Organization.json",
+                "description": "inline description of Organization"
               },
               {
                 "type": "string",

@@ -59,7 +59,8 @@
       "description": "\nConcept scheme defining the concept.",
       "oneOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/ConceptScheme.json,"description": "inline description of ConceptScheme"
+          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/ConceptScheme.json",
+          "description": "inline description of ConceptScheme"
         },
         {
           "type": "string",

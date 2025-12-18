@@ -24,7 +24,8 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Address.json,"description": "inline description of Address"
+                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Address.json",
+                "description": "inline description of Address"
               },
               {
                 "type": "string",
@@ -42,7 +43,8 @@
       "description": "The email address of the contact",
       "oneOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json,"description": "inline description of Resource"
+          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json",
+          "description": "inline description of Resource"
         },
         {
           "type": "string",
@@ -107,7 +109,8 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json,"description": "inline description of Resource"
+              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json",
+              "description": "inline description of Resource"
             },
             {
               "type": "string",

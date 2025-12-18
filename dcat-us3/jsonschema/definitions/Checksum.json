@@ -17,7 +17,8 @@
       "description": "The algorithm used to produce the subject Checksum.",
       "oneOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/ChecksumAlgorithm.json,"description": "inline description of ChecksumAlgorithm"
+          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/ChecksumAlgorithm.json",
+          "description": "inline description of ChecksumAlgorithm"
         },
         {
           "type": "string",
