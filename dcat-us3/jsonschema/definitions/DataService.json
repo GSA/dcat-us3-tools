@@ -43,12 +43,12 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Resource",
-                "description": "inline description of Resource"
+                "$ref": "#/definitions/Dataset",
+                "description": "inline description of a Dataset"
               },
               {
                 "type": "string",
-                "description": "reference iri of Resource",
+                "description": "reference iri of Dataset",
                 "format": "iri"
               }
             ]
@@ -62,17 +62,8 @@
       "description": "The root location or primary endpoint of the service (a Web-resolvable IRI)",
       "type": "array",
       "items": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/Resource",
-            "description": "inline description of Resource"
-          },
-          {
-            "type": "string",
-            "description": "reference iri of Resource",
-            "format": "iri"
-          }
-        ]
+        "type": "string",
+        "format": "iri"
       }
     },
     "keyword": {
