@@ -18,13 +18,11 @@ from pathlib import Path
 from collections import defaultdict
 from urllib.parse import urljoin
 import requests
-from jsonschema import Draft7Validator, ValidationError
-from referencing import Registry, Resource
-from referencing.jsonschema import DRAFT7
+import jsonschema_rs
 
 # Base URL for the DCAT-US 3.0 JSON Schema files
 SCHEMA_BASE_URL = "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/"
-SCHEMA_ROOT_URL = SCHEMA_BASE_URL + "dcat_us_3.0.0_schema.json"
+SCHEMA_ROOT_URL = SCHEMA_BASE_URL + "/definitions/Catalog.json"
 
 # Cache for fetched schemas
 _schema_cache = {}
@@ -45,10 +43,65 @@ def fetch_schema(url: str) -> dict:
         raise RuntimeError(f"Failed to fetch schema from {url}: {e}")
 
 
-def retrieve_from_url(uri: str):
-    """Retrieve a schema resource from a URL for the referencing library."""
-    schema = fetch_schema(uri)
-    return Resource.from_contents(schema, default_specification=DRAFT7)
+def resolve_refs_recursively(obj, base_url: str, visited: set = None) -> dict:
+    """
+    Recursively resolve all $ref references in a schema by fetching and inlining them.
+    
+    This is necessary because jsonschema-rs may have trouble fetching remote URLs
+    during validation. By resolving all refs upfront using Python's requests library,
+    we ensure the schema is self-contained.
+    
+    Args:
+        obj: The schema object to process
+        base_url: The base URL for resolving relative references
+        visited: Set of already-visited URLs to prevent infinite recursion
+    
+    Returns:
+        The schema with all $ref references resolved and inlined
+    """
+    if visited is None:
+        visited = set()
+    
+    if isinstance(obj, dict):
+        # Check if this is a $ref that points to a URL
+        if "$ref" in obj and isinstance(obj["$ref"], str):
+            ref = obj["$ref"]
+            
+            # Only resolve HTTP(S) URLs, not local #/definitions/ refs
+            if ref.startswith("http://") or ref.startswith("https://"):
+                if ref in visited:
+                    # Already resolved this, return a reference to avoid infinite loop
+                    return obj
+                
+                visited.add(ref)
+                
+                try:
+                    # Fetch the referenced schema
+                    referenced_schema = fetch_schema(ref)
+                    # Remove $id to prevent base URI changes
+                    referenced_schema = remove_schema_ids(referenced_schema)
+                    # Recursively resolve any refs in the fetched schema
+                    resolved = resolve_refs_recursively(referenced_schema, ref, visited)
+                    
+                    # Merge any additional properties from the original $ref object
+                    # (like "description") into the resolved schema
+                    other_props = {k: v for k, v in obj.items() if k != "$ref"}
+                    if other_props and isinstance(resolved, dict):
+                        resolved = {**resolved, **other_props}
+                    
+                    return resolved
+                except Exception as e:
+                    print(f"  WARNING: Failed to resolve $ref {ref}: {e}")
+                    return obj
+        
+        # Recursively process all values in the dict
+        return {key: resolve_refs_recursively(value, base_url, visited) for key, value in obj.items()}
+    
+    elif isinstance(obj, list):
+        return [resolve_refs_recursively(item, base_url, visited) for item in obj]
+    
+    else:
+        return obj
 
 
 def load_json_file(filepath):
@@ -84,52 +137,26 @@ def remove_schema_ids(obj):
         return obj
 
 
-def build_registry_with_remote_schemas() -> tuple[dict, Registry]:
+def build_registry_with_remote_schemas() -> dict:
     """
     Fetch the root schema and all referenced definition schemas from GitHub.
     
-    Returns a tuple of (root_schema, registry) where the registry contains
-    all the definition schemas needed for $ref resolution.
+    Returns the root schema with all definitions inlined for jsonschema-rs.
+    This recursively resolves ALL $ref references to remote URLs, ensuring
+    the schema is completely self-contained and jsonschema-rs doesn't need
+    to make any HTTP calls during validation.
     """
     print(f"  Fetching root schema from {SCHEMA_ROOT_URL}")
     root_schema = fetch_schema(SCHEMA_ROOT_URL)
     
-    # Build a list of all definition URLs we need to fetch
-    definitions = root_schema.get("definitions", {})
-    resources = []
+    # Recursively resolve all $ref references in the entire schema
+    print("  Resolving all remote $ref references...")
+    resolved_schema = resolve_refs_recursively(root_schema, SCHEMA_ROOT_URL)
     
-    for def_name, def_value in definitions.items():
-        if "$ref" in def_value:
-            ref_path = def_value["$ref"]
-            # Convert relative path to absolute URL
-            def_url = urljoin(SCHEMA_BASE_URL, ref_path)
-            print(f"  Fetching {def_name} from {def_url}")
-            
-            try:
-                def_schema = fetch_schema(def_url)
-                # Remove $id properties that break reference resolution
-                def_schema = remove_schema_ids(def_schema)
-                resource = Resource.from_contents(def_schema, default_specification=DRAFT7)
-                resources.append((def_url, resource))
-            except Exception as e:
-                print(f"  WARNING: Failed to fetch {def_name}: {e}")
+    # Remove any remaining $id properties that could break reference resolution
+    resolved_schema = remove_schema_ids(resolved_schema)
     
-    # Create registry with all fetched schemas
-    registry = Registry().with_resources(resources)
-    
-    # Now rewrite the root schema to use absolute URLs for $ref
-    rewritten_definitions = {}
-    for def_name, def_value in definitions.items():
-        if "$ref" in def_value:
-            ref_path = def_value["$ref"]
-            def_url = urljoin(SCHEMA_BASE_URL, ref_path)
-            rewritten_definitions[def_name] = {"$ref": def_url}
-        else:
-            rewritten_definitions[def_name] = def_value
-    
-    root_schema["definitions"] = rewritten_definitions
-    
-    return root_schema, registry
+    return resolved_schema
 
 def get_format_from_message(validation_msg: str) -> str:
     """Extract the format/rule from validation error message."""
@@ -147,63 +174,46 @@ def get_format_from_message(validation_msg: str) -> str:
         return "required field"
     return validation_msg.split(" ")[-1] if validation_msg else "unknown"
 
-def get_field_path(error: ValidationError) -> str:
-    """Extract a readable field path from validation error."""
-    if error.absolute_path:
-        path_parts = []
-        for part in error.absolute_path:
-            if isinstance(part, int):
-                path_parts.append(f"[{part}]")
-            else:
-                path_parts.append(str(part))
-        return ".".join(path_parts).replace(".[", "[")
-    return "$"
-
-def found_simple_message(validation_error: ValidationError) -> bool:
-    """Determine if this is a root-level simple error."""
-    field_path = get_field_path(validation_error)
-    
-    # Root level errors are simple
-    if field_path == "$":
-        return True
-    
-    # Dict/object and list/array errors at deeper levels may need recursion
-    if isinstance(validation_error.instance, (dict, list)):
-        # Empty containers are simple errors
-        if not validation_error.instance:
-            return True
-        # Non-empty containers with context need recursion
-        if validation_error.context:
-            return False
-    
-    # Primitive value errors are simple
-    return True
-
 def collect_all_validation_errors(validator, data):
-    """Collect all validation errors recursively."""
+    """Collect all validation errors from jsonschema-rs validator."""
     errors = []
     
-    def collect_errors(error):
-        if found_simple_message(error):
+    try:
+        # jsonschema-rs validate() raises ValidationError on first error
+        # Use iter_errors() to get all errors
+        for error in validator.iter_errors(data):
             errors.append(error)
-        else:
-            # Recurse through context errors
-            for context_error in error.context:
-                collect_errors(context_error)
-    
-    # Get all errors from validator
-    for error in validator.iter_errors(data):
-        collect_errors(error)
+    except Exception as e:
+        # Fallback for any unexpected errors
+        errors.append(str(e))
     
     return errors
+
+
+def get_field_path_from_error(error) -> str:
+    """Extract a readable field path from jsonschema-rs validation error."""
+    # jsonschema-rs errors have an instance_path attribute
+    if hasattr(error, 'instance_path'):
+        path = error.instance_path
+        if path:
+            return path
+    return "$"
+
+
+def get_error_message(error) -> str:
+    """Extract the error message from a jsonschema-rs validation error."""
+    if hasattr(error, 'message'):
+        return error.message
+    return str(error)
 
 def group_errors_by_field(errors):
     """Group validation errors by field path for better reporting."""
     grouped = defaultdict(list)
     
     for error in errors:
-        field_path = get_field_path(error)
-        grouped[field_path].append(error.message)
+        field_path = get_field_path_from_error(error)
+        message = get_error_message(error)
+        grouped[field_path].append(message)
     
     return grouped
 
@@ -260,13 +270,12 @@ def format_validation_errors(grouped_errors):
     
     return formatted_errors
 
-def validate_example(example_file, main_schema, registry, expect_valid=True):
+def validate_example(example_file, main_schema, expect_valid=True):
     """Validate a single JSON-LD example file against the schema.
     
     Args:
         example_file: Path to the JSON-LD file
         main_schema: The JSON schema to validate against
-        registry: The referencing Registry for resolving $ref references
         expect_valid: If True, file should pass validation. If False, file should fail.
     
     Returns:
@@ -282,8 +291,8 @@ def validate_example(example_file, main_schema, registry, expect_valid=True):
         return False
     
     try:
-        # Create validator with registry for $ref resolution
-        validator = Draft7Validator(main_schema, registry=registry)
+        # Create jsonschema-rs validator
+        validator = jsonschema_rs.validator_for(main_schema)
         
         # Collect all validation errors
         all_errors = collect_all_validation_errors(validator, example_data)
@@ -340,7 +349,7 @@ def main():
     # Load schemas from GitHub
     print("Loading schemas from GitHub...")
     try:
-        main_schema, registry = build_registry_with_remote_schemas()
+        main_schema = build_registry_with_remote_schemas()
     except Exception as e:
         print(f"ERROR: Failed to load schemas: {e}")
         sys.exit(1)
@@ -357,7 +366,7 @@ def main():
             sys.exit(1)
         
         print(f"\n=== VALIDATION RESULTS FOR {jsonld_file} ===")
-        success = validate_example(jsonld_file, main_schema, registry)
+        success = validate_example(jsonld_file, main_schema)
         sys.exit(0 if success else 1)
     elif len(sys.argv) > 2:
         print("ERROR: Too many arguments provided")
@@ -397,7 +406,7 @@ def main():
     if good_files:
         print("\n--- Validating 'good' examples (expected to be VALID) ---\n")
         for example_file in sorted(good_files):
-            if validate_example(example_file, main_schema, registry, expect_valid=True):
+            if validate_example(example_file, main_schema, expect_valid=True):
                 pass_count += 1
             else:
                 fail_count += 1
@@ -406,7 +415,7 @@ def main():
     if bad_files:
         print("\n--- Validating 'bad' examples (expected to be INVALID) ---\n")
         for example_file in sorted(bad_files):
-            if validate_example(example_file, main_schema, registry, expect_valid=False):
+            if validate_example(example_file, main_schema, expect_valid=False):
                 pass_count += 1
             else:
                 fail_count += 1

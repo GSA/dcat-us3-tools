@@ -17,7 +17,7 @@
       "description": "The function of an entity or agent with respect to another entity or resource.",
       "oneOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Role.json",
+          "$ref": "#/definitions/Role",
           "description": "inline description of Role"
         },
         {
@@ -33,7 +33,7 @@
       "description": "The resource related to the source resource.",
       "oneOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json",
+          "$ref": "#/definitions/Resource",
           "description": "inline description of Resource"
         },
         {

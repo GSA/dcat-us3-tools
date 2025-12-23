@@ -95,7 +95,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/ConceptScheme.json",
+              "$ref": "#/definitions/ConceptScheme",
               "description": "inline description of ConceptScheme"
             },
             {

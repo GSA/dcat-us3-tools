@@ -12,7 +12,6 @@
       "default": "Catalog"
     },
     "catalog": {
-      "$id": "http://www.w3.org/ns/dcat#catalog",
       "title": "catalog",
       "description": "This property refers to a catalog whose contents are of interest in the context of this catalog.",
       "oneOf": [
@@ -24,7 +23,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Catalog",
+                "$ref": "#/$defs/Catalog",
                 "description": "inline description of Catalog"
               },
               {
@@ -38,7 +37,6 @@
       ]
     },
     "contactPoint": {
-      "$id": "http://www.w3.org/ns/dcat#contactPoint",
       "title": "contact point",
       "description": "This property contains contact information that can be used for sending comments about the Catalogue.",
       "oneOf": [
@@ -50,7 +48,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Kind",
+                "$ref": "#/$defs/Kind",
                 "description": "inline description of Kind"
               },
               {
@@ -64,14 +62,13 @@
       ]
     },
     "dataset": {
-      "$id": "http://www.w3.org/ns/dcat#dataset",
       "title": "dataset",
       "description": "This property links the Catalog with the Dataset(s) that is/are part of the Catalog.",
       "type": "array",
       "items": {
         "oneOf": [
           {
-            "$ref": "#/definitions/Dataset",
+            "$ref": "#/$defs/Dataset",
             "description": "inline description of Dataset"
           },
           {
@@ -83,7 +80,6 @@
       }
     },
     "keyword": {
-      "$id": "http://www.w3.org/ns/dcat#keyword",
       "title": "keyword/tag",
       "description": "A keyword or tag describing the resource.",
       "oneOf": [
@@ -96,7 +92,6 @@
       ]
     },
     "keywordMap": {
-      "$id": "http://www.w3.org/ns/dcat#keyword_lang_map",
       "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
       "type": [
         "null",
@@ -104,7 +99,6 @@
       ]
     },
     "record": {
-      "$id": "http://www.w3.org/ns/dcat#record",
       "title": "catalog record",
       "description": "A record describing the registration of a single resource (e.g., a dataset, a data service) that is part of the catalog.",
       "oneOf": [
@@ -116,7 +110,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/CatalogRecord",
+                "$ref": "#/$defs/CatalogRecord",
                 "description": "inline description of CatalogRecord"
               },
               {
@@ -130,7 +124,6 @@
       ]
     },
     "service": {
-      "$id": "http://www.w3.org/ns/dcat#service",
       "title": "service",
       "description": "This property refers to a site or end-point (Data Service) that is listed in the Catalog.",
       "oneOf": [
@@ -142,7 +135,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/DataService",
+                "$ref": "#/$defs/DataService",
                 "description": "inline description of DataService"
               },
               {
@@ -156,7 +149,6 @@
       ]
     },
     "theme": {
-      "$id": "http://www.w3.org/ns/dcat#theme",
       "title": "theme/category",
       "description": "This property refers to a category of the Catalog. A Catalog may be associated with multiple themes.",
       "oneOf": [
@@ -168,7 +160,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Concept",
+                "$ref": "#/$defs/Concept",
                 "description": "inline description of Concept"
               },
               {
@@ -182,7 +174,6 @@
       ]
     },
     "themeTaxonomy": {
-      "$id": "http://www.w3.org/ns/dcat#themeTaxonomy",
       "title": "themes",
       "description": "A knowledge organization system (KOS) used to classify the resources documented in the catalog (e.g., datasets and services).",
       "oneOf": [
@@ -194,7 +185,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/ConceptScheme",
+                "$ref": "#/$defs/ConceptScheme",
                 "description": "inline description of ConceptScheme"
               },
               {
@@ -208,7 +199,6 @@
       ]
     },
     "accessRights": {
-      "$id": "http://purl.org/dc/terms/accessRights",
       "title": "access rights",
       "description": "This property refers to information that indicates whether the Catalog is open data, has access restrictions or is not public.",
       "oneOf": [
@@ -218,7 +208,7 @@
         {
           "oneOf": [
             {
-              "$ref": "#/definitions/RightsStatement",
+              "$ref": "#/$defs/RightsStatement",
               "description": "inline description of RightsStatement"
             },
             {
@@ -231,7 +221,6 @@
       ]
     },
     "conformsTo": {
-      "$id": "http://purl.org/dc/terms/conformsTo",
       "title": "schema version",
       "description": "An established standard to which the described catalog conforms.",
       "oneOf": [
@@ -241,7 +230,7 @@
         {
           "oneOf": [
             {
-              "$ref": "#/definitions/Standard",
+              "$ref": "#/$defs/Standard",
               "description": "inline description of Standard"
             },
             {
@@ -254,7 +243,6 @@
       ]
     },
     "creator": {
-      "$id": "http://purl.org/dc/terms/creator",
       "title": "creator",
       "description": "The entity responsible for creating the resource.",
       "oneOf": [
@@ -266,7 +254,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Agent",
+                "$ref": "#/$defs/Agent",
                 "description": "inline description of Agent"
               },
               {
@@ -280,13 +268,11 @@
       ]
     },
     "description": {
-      "$id": "http://purl.org/dc/terms/description",
       "title": "description",
       "description": "Free-text description of the catalog (in the language indicated in the attribute).",
       "type": "string"
     },
     "descriptionMap": {
-      "$id": "http://purl.org/dc/terms/description_lang_map",
       "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
       "type": [
         "null",
@@ -294,7 +280,6 @@
       ]
     },
     "hasPart": {
-      "$id": "http://purl.org/dc/terms/hasPart",
       "title": "has part",
       "description": "This property refers to a related catalog that is part of the described catalog.",
       "oneOf": [
@@ -306,7 +291,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Catalog",
+                "$ref": "#/$defs/Catalog",
                 "description": "inline description of Catalog"
               },
               {
@@ -320,7 +305,6 @@
       ]
     },
     "identifier": {
-      "$id": "http://purl.org/dc/terms/identifier",
       "title": "identifier",
       "description": "This property contains the main identifier for the Catalog, e.g. the URI or other unique identifier.",
       "oneOf": [
@@ -336,7 +320,6 @@
       ]
     },
     "issued": {
-      "$id": "http://purl.org/dc/terms/issued",
       "title": "release date",
       "description": "Date of formal issuance (e.g., publication) of the resource.",
       "oneOf": [
@@ -365,7 +348,6 @@
       ]
     },
     "language": {
-      "$id": "http://purl.org/dc/terms/language",
       "title": "language",
       "description": "This property refers to a language used in the textual metadata describing titles, descriptions, etc. of the Datasets in the Catalog.",
       "oneOf": [
@@ -377,7 +359,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/LinguisticSystem",
+                "$ref": "#/$defs/LinguisticSystem",
                 "description": "inline description of LinguisticSystem"
               },
               {
@@ -391,7 +373,6 @@
       ]
     },
     "license": {
-      "$id": "http://purl.org/dc/terms/license",
       "title": "license",
       "description": "This property refers to the license under which the Catalog can be used or reused.",
       "oneOf": [
@@ -401,7 +382,7 @@
         {
           "oneOf": [
             {
-              "$ref": "#/definitions/LicenseDocument",
+              "$ref": "#/$defs/LicenseDocument",
               "description": "inline description of LicenseDocument"
             },
             {
@@ -414,7 +395,6 @@
       ]
     },
     "modified": {
-      "$id": "http://purl.org/dc/terms/modified",
       "title": "update/modification date",
       "description": "Most recent date on which the resource was changed, updated or modified.",
       "oneOf": [
@@ -443,12 +423,11 @@
       ]
     },
     "publisher": {
-      "$id": "http://purl.org/dc/terms/publisher",
       "title": "publisher",
       "description": "Entity responsible for making the catalog available.",
       "oneOf": [
         {
-          "$ref": "#/definitions/Agent",
+          "$ref": "#/$defs/Agent",
           "description": "inline description of Agent"
         },
         {
@@ -459,7 +438,6 @@
       ]
     },
     "rights": {
-      "$id": "http://purl.org/dc/terms/rights",
       "title": "rights",
       "description": "This property refers to a statement that specifies rights associated with the Catalogue.",
       "oneOf": [
@@ -469,7 +447,7 @@
         {
           "oneOf": [
             {
-              "$ref": "#/definitions/RightsStatement",
+              "$ref": "#/$defs/RightsStatement",
               "description": "inline description of RightsStatement"
             },
             {
@@ -482,7 +460,6 @@
       ]
     },
     "rightsHolder": {
-      "$id": "http://purl.org/dc/terms/rightsHolder",
       "title": "rights holder",
       "description": "This property refers to an organization holding rights on the Catalog.",
       "oneOf": [
@@ -494,7 +471,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Organization",
+                "$ref": "#/$defs/Organization",
                 "description": "inline description of Organization"
               },
               {
@@ -508,7 +485,6 @@
       ]
     },
     "spatial": {
-      "$id": "http://purl.org/dc/terms/spatial",
       "title": "spatial/geographic coverage",
       "description": "The geographical area covered by the catalog.",
       "oneOf": [
@@ -520,7 +496,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Location",
+                "$ref": "#/$defs/Location",
                 "description": "inline description of Location"
               },
               {
@@ -534,7 +510,6 @@
       ]
     },
     "subject": {
-      "$id": "http://purl.org/dc/terms/subject",
       "title": "subject",
       "description": "Primary subject of the catalog",
       "oneOf": [
@@ -546,7 +521,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Concept",
+                "$ref": "#/$defs/Concept",
                 "description": "inline description of Concept"
               },
               {
@@ -560,7 +535,6 @@
       ]
     },
     "temporal": {
-      "$id": "http://purl.org/dc/terms/temporal",
       "title": "temporal coverage",
       "description": "A temporal period that the Catalog covers.",
       "oneOf": [
@@ -572,7 +546,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/PeriodOfTime",
+                "$ref": "#/$defs/PeriodOfTime",
                 "description": "inline description of PeriodOfTime"
               },
               {
@@ -586,13 +560,11 @@
       ]
     },
     "title": {
-      "$id": "http://purl.org/dc/terms/title",
       "title": "title",
       "description": "The title of the catalog in the indicated language",
       "type": "string"
     },
     "titleMap": {
-      "$id": "http://purl.org/dc/terms/title_lang_map",
       "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
       "type": [
         "null",
@@ -600,7 +572,6 @@
       ]
     },
     "category": {
-      "$id": "http://purl.org/dc/terms/type",
       "title": "category",
       "description": "The category of the Catalog ",
       "oneOf": [
@@ -610,7 +581,7 @@
         {
           "oneOf": [
             {
-              "$ref": "#/definitions/Concept",
+              "$ref": "#/$defs/Concept",
               "description": "inline description of Concept"
             },
             {
@@ -623,7 +594,6 @@
       ]
     },
     "homepage": {
-      "$id": "http://xmlns.com/foaf/0.1/homepage",
       "title": "homepage",
       "description": "A homepage of the catalog (a public Web document usually available in HTML).",
       "oneOf": [
@@ -633,7 +603,7 @@
         {
           "oneOf": [
             {
-              "$ref": "#/definitions/Document",
+              "$ref": "#/$defs/Document",
               "description": "inline description of Document"
             },
             {
@@ -646,7 +616,6 @@
       ]
     },
     "qualifiedAttribution": {
-      "$id": "http://www.w3.org/ns/prov#qualifiedAttribution",
       "title": "qualified attribution",
       "description": "This property refers to a link to an Agent having some form of responsibility for the Catalog.",
       "oneOf": [
@@ -658,7 +627,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Attribution",
+                "$ref": "#/$defs/Attribution",
                 "description": "inline description of Attribution"
               },
               {
@@ -678,7 +647,7 @@
     "publisher",
     "title"
   ],
-  "definitions": {
+  "$defs": {
     "QualityMeasurement": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "QualityMeasurement",
@@ -693,12 +662,11 @@
           "default": "QualityMeasurement"
         },
         "isMeasurementOf": {
-          "$id": "http://www.w3.org/ns/dqv#isMeasurementOf",
           "title": "is measurement of",
           "description": "Indicates the metric being observed.",
           "oneOf": [
             {
-              "$ref": "#/definitions/Metric",
+              "$ref": "#/$defs/Metric",
               "description": "inline description of Metric"
             },
             {
@@ -709,13 +677,11 @@
           ]
         },
         "value": {
-          "$id": "http://www.w3.org/ns/dqv#value",
           "title": "value",
           "description": "Refers to values computed by metric.",
           "type": "string"
         },
         "unitMeasure": {
-          "$id": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
           "title": "unit of measure",
           "description": "Unit of measure associated with the value",
           "oneOf": [
@@ -725,7 +691,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Resource",
+                  "$ref": "#/$defs/Resource",
                   "description": "inline description of Resource"
                 },
                 {
@@ -757,7 +723,6 @@
           "default": "Agent"
         },
         "category": {
-          "$id": "http://purl.org/dc/terms/type",
           "title": "category",
           "description": "This property refers to a type of the Agent that makes the Catalog, Catalog Record, Data Service, or Dataset available",
           "oneOf": [
@@ -767,7 +732,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -780,7 +745,6 @@
           ]
         },
         "name": {
-          "$id": "http://xmlns.com/foaf/0.1/name",
           "title": "name",
           "description": "The name of the software agent",
           "type": "string"
@@ -804,7 +768,6 @@
           "default": "CatalogRecord"
         },
         "status": {
-          "$id": "http://www.w3.org/ns/adms#status",
           "title": "change type",
           "description": "The status of the catalog record in the context of editorial flow of the dataset and data service descriptions.",
           "oneOf": [
@@ -814,7 +777,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -827,7 +790,6 @@
           ]
         },
         "conformsTo": {
-          "$id": "http://purl.org/dc/terms/conformsTo",
           "title": "application profile",
           "description": "An Application Profile that the Catalog Record's metadata conforms to.",
           "oneOf": [
@@ -837,7 +799,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Standard",
+                  "$ref": "#/$defs/Standard",
                   "description": "inline description of Standard"
                 },
                 {
@@ -850,7 +812,6 @@
           ]
         },
         "description": {
-          "$id": "http://purl.org/dc/terms/description",
           "title": "description",
           "description": "A free-text account of the Catalog Record. This property can be repeated for parallel language versions of the description.",
           "oneOf": [
@@ -866,7 +827,6 @@
           ]
         },
         "issued": {
-          "$id": "http://purl.org/dc/terms/issued",
           "title": "listing date",
           "description": "The date on which the description of the Dataset was included in the Catalog.",
           "oneOf": [
@@ -898,7 +858,6 @@
           ]
         },
         "language": {
-          "$id": "http://purl.org/dc/terms/language",
           "title": "language",
           "description": "A language used in the textual metadata describing titles, descriptions, etc. of the Catalog Record.",
           "oneOf": [
@@ -910,7 +869,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/LinguisticSystem",
+                    "$ref": "#/$defs/LinguisticSystem",
                     "description": "inline description of LinguisticSystem"
                   },
                   {
@@ -924,7 +883,6 @@
           ]
         },
         "modified": {
-          "$id": "http://purl.org/dc/terms/modified",
           "title": "update/modification date",
           "description": "The most recent date on which the Catalog Record's entry was changed or modified.",
           "type": "string",
@@ -946,7 +904,6 @@
           ]
         },
         "source": {
-          "$id": "http://purl.org/dc/terms/source",
           "title": "source metadata",
           "description": "The original metadata that was used in creating metadata for the datasets, data services, or catalogs in the Catalog Record.",
           "oneOf": [
@@ -956,7 +913,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Resource",
+                  "$ref": "#/$defs/Resource",
                   "description": "inline description of Resource"
                 },
                 {
@@ -969,7 +926,6 @@
           ]
         },
         "title": {
-          "$id": "http://purl.org/dc/terms/title",
           "title": "title",
           "description": "A name given to the Catalog Record.",
           "oneOf": [
@@ -982,7 +938,6 @@
           ]
         },
         "titleMap": {
-          "$id": "http://purl.org/dc/terms/title_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -990,12 +945,11 @@
           ]
         },
         "primaryTopic": {
-          "$id": "http://xmlns.com/foaf/0.1/primaryTopic",
           "title": "primary topic",
           "description": "A link to the Dataset, Data service or Catalog described in the Catalog Record.",
           "oneOf": [
             {
-              "$ref": "#/definitions/Resource",
+              "$ref": "#/$defs/Resource",
               "description": "inline description of Resource"
             },
             {
@@ -1025,7 +979,6 @@
           "default": "Standard"
         },
         "created": {
-          "$id": "http://purl.org/dc/terms/created",
           "title": "creation date",
           "description": "This property contains the date on which the Standard has been first created.",
           "oneOf": [
@@ -1054,7 +1007,6 @@
           ]
         },
         "description": {
-          "$id": "http://purl.org/dc/terms/description",
           "title": "description",
           "description": "This property contains a free-text account of the Standard. This property can be repeated for parallel language versions of the description",
           "oneOf": [
@@ -1067,7 +1019,6 @@
           ]
         },
         "descriptionMap": {
-          "$id": "http://purl.org/dc/terms/description_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -1075,7 +1026,6 @@
           ]
         },
         "identifier": {
-          "$id": "http://purl.org/dc/terms/identifier",
           "title": "identifier",
           "description": "This property contains the main identifier for the Standard, e.g. the URI or other unique identifier in the context of the Catalogue, or of a reference register",
           "oneOf": [
@@ -1091,7 +1041,6 @@
           ]
         },
         "issued": {
-          "$id": "http://purl.org/dc/terms/issued",
           "title": "issued",
           "description": "This property contains the date of formal issuance (e.g., publication) of the Standard.",
           "oneOf": [
@@ -1120,7 +1069,6 @@
           ]
         },
         "modified": {
-          "$id": "http://purl.org/dc/terms/modified",
           "title": "last modified",
           "description": "This property contains the most recent date on which the Standard was changed or modified.",
           "oneOf": [
@@ -1149,7 +1097,6 @@
           ]
         },
         "title": {
-          "$id": "http://purl.org/dc/terms/title",
           "title": "title",
           "description": "This property contains a name given to the Standard. This property can be repeated for parallel language versions of the name",
           "oneOf": [
@@ -1162,7 +1109,6 @@
           ]
         },
         "titleMap": {
-          "$id": "http://purl.org/dc/terms/title_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -1170,7 +1116,6 @@
           ]
         },
         "category": {
-          "$id": "http://purl.org/dc/terms/type",
           "title": "category",
           "description": "This property refers to the type of the Standard. A controlled vocabulary for the values has not been established.",
           "oneOf": [
@@ -1180,7 +1125,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -1193,7 +1138,6 @@
           ]
         },
         "inScheme": {
-          "$id": "http://www.w3.org/2004/02/skos/core#inScheme",
           "title": "in scheme",
           "description": "This property MAY be used to specify the reference register to which the Standard belongs.",
           "oneOf": [
@@ -1203,7 +1147,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/ConceptScheme",
+                  "$ref": "#/$defs/ConceptScheme",
                   "description": "inline description of ConceptScheme"
                 },
                 {
@@ -1232,7 +1176,6 @@
           "default": "UseRestriction"
         },
         "restrictionNote": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#restrictionNote",
           "title": "restriction note",
           "description": "Significant information pertaining to the use or reproduction of the data.",
           "oneOf": [
@@ -1245,7 +1188,6 @@
           ]
         },
         "restrictionNoteMap": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#restrictionNote_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -1253,12 +1195,11 @@
           ]
         },
         "restrictionStatus": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#restrictionStatus",
           "title": "restriction status",
           "description": "Indication of whether or not there are use restrictions on the archival materials",
           "oneOf": [
             {
-              "$ref": "#/definitions/Concept",
+              "$ref": "#/$defs/Concept",
               "description": "inline description of Concept"
             },
             {
@@ -1269,7 +1210,6 @@
           ]
         },
         "specificRestriction": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#specificRestriction",
           "title": "specific restriction",
           "description": "The specific NARA restriction associated with the use restriction",
           "oneOf": [
@@ -1279,7 +1219,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -1310,7 +1250,6 @@
           "default": "DatasetSeries"
         },
         "contactPoint": {
-          "$id": "http://www.w3.org/ns/dcat#contactPoint",
           "title": "contact point",
           "description": "This property contains contact information that can be used for sending comments about the Dataset Series.",
           "oneOf": [
@@ -1322,7 +1261,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Kind",
+                    "$ref": "#/$defs/Kind",
                     "description": "inline description of Kind"
                   },
                   {
@@ -1336,7 +1275,6 @@
           ]
         },
         "first": {
-          "$id": "http://www.w3.org/ns/dcat#first",
           "title": "first",
           "description": "The first dataset in an ordered dataset series, to which the current dataset belongs.",
           "oneOf": [
@@ -1346,7 +1284,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Dataset",
+                  "$ref": "#/$defs/Dataset",
                   "description": "inline description of Dataset"
                 },
                 {
@@ -1359,7 +1297,6 @@
           ]
         },
         "last": {
-          "$id": "http://www.w3.org/ns/dcat#last",
           "title": "last",
           "description": "The last resource in an ordered dataset series",
           "oneOf": [
@@ -1369,7 +1306,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Dataset",
+                  "$ref": "#/$defs/Dataset",
                   "description": "inline description of Dataset"
                 },
                 {
@@ -1382,7 +1319,6 @@
           ]
         },
         "seriesMember": {
-          "$id": "http://www.w3.org/ns/dcat#seriesMember",
           "title": "series member",
           "description": "A member of the Dataset Series.",
           "oneOf": [
@@ -1394,7 +1330,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Dataset",
+                    "$ref": "#/$defs/Dataset",
                     "description": "inline description of Dataset"
                   },
                   {
@@ -1408,7 +1344,6 @@
           ]
         },
         "accrualPeriodicity": {
-          "$id": "http://purl.org/dc/terms/accrualPeriodicity",
           "title": "frequency",
           "description": "This property refers to the frequency at which the Dataset Series is updated.",
           "oneOf": [
@@ -1418,7 +1353,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Frequency",
+                  "$ref": "#/$defs/Frequency",
                   "description": "inline description of Frequency"
                 },
                 {
@@ -1431,13 +1366,11 @@
           ]
         },
         "description": {
-          "$id": "http://purl.org/dc/terms/description",
           "title": "description",
           "description": "A free-text account of the Dataset Series.",
           "type": "string"
         },
         "descriptionMap": {
-          "$id": "http://purl.org/dc/terms/description_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -1445,7 +1378,6 @@
           ]
         },
         "issued": {
-          "$id": "http://purl.org/dc/terms/issued",
           "title": "release date",
           "description": "The date of formal issuance (e.g.,publication) of the Dataset Series.",
           "oneOf": [
@@ -1474,7 +1406,6 @@
           ]
         },
         "modified": {
-          "$id": "http://purl.org/dc/terms/modified",
           "title": "update/modification date",
           "description": "This property contains the most recent date on which the Dataset Series was changed or modified.",
           "oneOf": [
@@ -1503,7 +1434,6 @@
           ]
         },
         "publisher": {
-          "$id": "http://purl.org/dc/terms/publisher",
           "title": "publisher",
           "description": "An entity (organization) responsible for ensuring the coherency of the Dataset Series.",
           "oneOf": [
@@ -1513,7 +1443,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Agent",
+                  "$ref": "#/$defs/Agent",
                   "description": "inline description of Agent"
                 },
                 {
@@ -1526,7 +1456,6 @@
           ]
         },
         "spatial": {
-          "$id": "http://purl.org/dc/terms/spatial",
           "title": "spatial/geographic coverage",
           "description": "This property refers to a geographic region that is covered by the Dataset Series.",
           "oneOf": [
@@ -1538,7 +1467,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Location",
+                    "$ref": "#/$defs/Location",
                     "description": "inline description of Location"
                   },
                   {
@@ -1552,7 +1481,6 @@
           ]
         },
         "temporal": {
-          "$id": "http://purl.org/dc/terms/temporal",
           "title": "temporal coverage",
           "description": "A temporal period that the Dataset Series covers.",
           "oneOf": [
@@ -1564,7 +1492,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/PeriodOfTime",
+                    "$ref": "#/$defs/PeriodOfTime",
                     "description": "inline description of PeriodOfTime"
                   },
                   {
@@ -1578,13 +1506,11 @@
           ]
         },
         "title": {
-          "$id": "http://purl.org/dc/terms/title",
           "title": "title",
           "description": "A name given to the Dataset Series.",
           "type": "string"
         },
         "titleMap": {
-          "$id": "http://purl.org/dc/terms/title_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -1611,7 +1537,6 @@
           "default": "AccessRestriction"
         },
         "restrictionNote": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#restrictionNote",
           "title": "restriction note",
           "description": "A note related to the access restriction",
           "oneOf": [
@@ -1624,7 +1549,6 @@
           ]
         },
         "restrictionNoteMap": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#restrictionNote_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -1632,12 +1556,11 @@
           ]
         },
         "restrictionStatus": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#restrictionStatus",
           "title": "restriction status",
           "description": "The indication of whether or not there are access restrictions on the data.",
           "oneOf": [
             {
-              "$ref": "#/definitions/Concept",
+              "$ref": "#/$defs/Concept",
               "description": "inline description of Concept"
             },
             {
@@ -1648,7 +1571,6 @@
           ]
         },
         "specificRestriction": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#specificRestriction",
           "title": "specific restriction",
           "description": "The specific NARA restriction associated with the access restriction",
           "oneOf": [
@@ -1658,7 +1580,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -1689,7 +1611,6 @@
           "default": "Address"
         },
         "country-name": {
-          "$id": "http://www.w3.org/2006/vcard/ns#country-name",
           "title": "country",
           "description": "The country of an Address of the Kind.",
           "oneOf": [
@@ -1702,7 +1623,6 @@
           ]
         },
         "locality": {
-          "$id": "http://www.w3.org/2006/vcard/ns#locality",
           "title": "locality",
           "description": "The city of an Address of the Kind.",
           "oneOf": [
@@ -1715,7 +1635,6 @@
           ]
         },
         "postal-code": {
-          "$id": "http://www.w3.org/2006/vcard/ns#postal-code",
           "title": "postal code",
           "description": "The postal code of an Address of the Kind.",
           "oneOf": [
@@ -1728,7 +1647,6 @@
           ]
         },
         "region": {
-          "$id": "http://www.w3.org/2006/vcard/ns#region",
           "title": "administrative area",
           "description": "The administrative area of an Address of the Kind. Depending on the country, this corresponds to a province, a county, a region, or a state.",
           "oneOf": [
@@ -1741,7 +1659,6 @@
           ]
         },
         "street-address": {
-          "$id": "http://www.w3.org/2006/vcard/ns#street-address",
           "title": "street address",
           "description": "The street name and civic number of an Address of the Kind.",
           "oneOf": [
@@ -1770,7 +1687,6 @@
           "default": "Dataset"
         },
         "otherIdentifier": {
-          "$id": "http://www.w3.org/ns/adms#identifier",
           "title": "other identifier",
           "description": "reference to a structure identifier.",
           "oneOf": [
@@ -1782,7 +1698,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Identifier",
+                    "$ref": "#/$defs/Identifier",
                     "description": "inline description of Identifier"
                   },
                   {
@@ -1796,7 +1712,6 @@
           ]
         },
         "sample": {
-          "$id": "http://www.w3.org/ns/adms#sample",
           "title": "sample",
           "description": "Links to a sample of a Dataset, which is a dcat:Distribution.",
           "oneOf": [
@@ -1808,7 +1723,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Distribution",
+                    "$ref": "#/$defs/Distribution",
                     "description": "inline description of Distribution"
                   },
                   {
@@ -1822,7 +1737,6 @@
           ]
         },
         "status": {
-          "$id": "http://www.w3.org/ns/adms#status",
           "title": "lifecycle status",
           "description": "The status of the dataset  in the context of maturity lifecycle.",
           "oneOf": [
@@ -1832,7 +1746,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -1845,7 +1759,6 @@
           ]
         },
         "supportedSchema": {
-          "$id": "http://www.w3.org/ns/adms#supportedSchema",
           "title": "supported schema",
           "description": "supported schema for this dataset",
           "oneOf": [
@@ -1855,7 +1768,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Dataset",
+                  "$ref": "#/$defs/Dataset",
                   "description": "inline description of Dataset"
                 },
                 {
@@ -1868,7 +1781,6 @@
           ]
         },
         "versionNotes": {
-          "$id": "http://www.w3.org/ns/adms#versionNotes",
           "title": "version notes",
           "description": "version notes for this dataset",
           "oneOf": [
@@ -1881,7 +1793,6 @@
           ]
         },
         "contactPoint": {
-          "$id": "http://www.w3.org/ns/dcat#contactPoint",
           "title": "contact point",
           "description": "This property contains contact information that can be used for sending comments about the Dataset.",
           "oneOf": [
@@ -1893,7 +1804,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Kind",
+                    "$ref": "#/$defs/Kind",
                     "description": "inline description of Kind"
                   },
                   {
@@ -1907,7 +1818,6 @@
           ]
         },
         "distribution": {
-          "$id": "http://www.w3.org/ns/dcat#distribution",
           "title": "dataset distribution",
           "description": "This property links the Dataset to an available Distribution.",
           "oneOf": [
@@ -1919,7 +1829,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Distribution",
+                    "$ref": "#/$defs/Distribution",
                     "description": "inline description of Distribution"
                   },
                   {
@@ -1933,7 +1843,6 @@
           ]
         },
         "first": {
-          "$id": "http://www.w3.org/ns/dcat#first",
           "title": "first",
           "description": "the first item of the sequence the dataset belongs to",
           "oneOf": [
@@ -1943,7 +1852,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Dataset",
+                  "$ref": "#/$defs/Dataset",
                   "description": "inline description of Dataset"
                 },
                 {
@@ -1956,7 +1865,6 @@
           ]
         },
         "hasCurrentVersion": {
-          "$id": "http://www.w3.org/ns/dcat#hasCurrentVersion",
           "title": "current version",
           "description": "reference to the current (latest) version of a dataset",
           "oneOf": [
@@ -1966,7 +1874,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Dataset",
+                  "$ref": "#/$defs/Dataset",
                   "description": "inline description of Dataset"
                 },
                 {
@@ -1979,7 +1887,6 @@
           ]
         },
         "hasVersion": {
-          "$id": "http://www.w3.org/ns/dcat#hasVersion",
           "title": "has version",
           "description": "A related Dataset that is a version, edition, or adaptation of the described Dataset. ",
           "oneOf": [
@@ -1991,7 +1898,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Dataset",
+                    "$ref": "#/$defs/Dataset",
                     "description": "inline description of Dataset"
                   },
                   {
@@ -2005,7 +1912,6 @@
           ]
         },
         "inSeries": {
-          "$id": "http://www.w3.org/ns/dcat#inSeries",
           "title": "in series",
           "description": "Dataset Series this dataset belong to",
           "oneOf": [
@@ -2017,7 +1923,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/DatasetSeries",
+                    "$ref": "#/$defs/DatasetSeries",
                     "description": "inline description of DatasetSeries"
                   },
                   {
@@ -2031,7 +1937,6 @@
           ]
         },
         "keyword": {
-          "$id": "http://www.w3.org/ns/dcat#keyword",
           "title": "keyword/tag",
           "description": "This property contains a keyword or tag describing the Dataset.",
           "oneOf": [
@@ -2044,7 +1949,6 @@
           ]
         },
         "keywordMap": {
-          "$id": "http://www.w3.org/ns/dcat#keyword_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -2052,7 +1956,6 @@
           ]
         },
         "landingPage": {
-          "$id": "http://www.w3.org/ns/dcat#landingPage",
           "title": "landing page",
           "description": "This property refers to a web page that provides access to the Dataset, its Distributions and/or additional information.",
           "oneOf": [
@@ -2062,7 +1965,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Document",
+                  "$ref": "#/$defs/Document",
                   "description": "inline description of Document"
                 },
                 {
@@ -2075,7 +1978,6 @@
           ]
         },
         "previousVersion": {
-          "$id": "http://www.w3.org/ns/dcat#previousVersion",
           "title": "previous version",
           "description": "previous dataset version ",
           "oneOf": [
@@ -2085,7 +1987,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Dataset",
+                  "$ref": "#/$defs/Dataset",
                   "description": "inline description of Dataset"
                 },
                 {
@@ -2098,7 +2000,6 @@
           ]
         },
         "qualifiedRelation": {
-          "$id": "http://www.w3.org/ns/dcat#qualifiedRelation",
           "title": "qualified relation",
           "description": "Qualified relationship with role of the dataset with another resource",
           "oneOf": [
@@ -2110,7 +2011,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Relationship",
+                    "$ref": "#/$defs/Relationship",
                     "description": "inline description of Relationship"
                   },
                   {
@@ -2124,7 +2025,6 @@
           ]
         },
         "spatialResolutionInMeters": {
-          "$id": "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
           "title": "Spatial resolution (meters)",
           "description": "Spatial resolution in meters",
           "oneOf": [
@@ -2137,7 +2037,6 @@
           ]
         },
         "temporalResolution": {
-          "$id": "http://www.w3.org/ns/dcat#temporalResolution",
           "title": "temporal resolution",
           "description": "Temporal resolution using xsd:duration syntax",
           "oneOf": [
@@ -2150,7 +2049,6 @@
           ]
         },
         "theme": {
-          "$id": "http://www.w3.org/ns/dcat#theme",
           "title": "theme/category",
           "description": "A theme of the dataset",
           "oneOf": [
@@ -2162,7 +2060,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Concept",
+                    "$ref": "#/$defs/Concept",
                     "description": "inline description of Concept"
                   },
                   {
@@ -2176,7 +2074,6 @@
           ]
         },
         "version": {
-          "$id": "http://www.w3.org/ns/dcat#version",
           "title": "version",
           "description": "The version indicator (name or identifier) of a resource",
           "oneOf": [
@@ -2189,7 +2086,6 @@
           ]
         },
         "describedBy": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#describedBy",
           "title": "data dictionary",
           "description": "This property refers to a distribution describing the Data Dictionary.",
           "oneOf": [
@@ -2199,7 +2095,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Distribution",
+                  "$ref": "#/$defs/Distribution",
                   "description": "inline description of Distribution"
                 },
                 {
@@ -2212,7 +2108,6 @@
           ]
         },
         "geographicBoundingBox": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#geographicBoundingBox",
           "title": "geographic bounding box",
           "description": "WGS84 Geographic Bounding Box for this dataset",
           "oneOf": [
@@ -2224,7 +2119,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/GeographicBoundingBox",
+                    "$ref": "#/$defs/GeographicBoundingBox",
                     "description": "inline description of GeographicBoundingBox"
                   },
                   {
@@ -2238,7 +2133,6 @@
           ]
         },
         "liabilityStatement": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#liabilityStatement",
           "title": "liability statement",
           "description": "A liability statement about the dataset",
           "oneOf": [
@@ -2248,7 +2142,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/LiabilityStatement",
+                  "$ref": "#/$defs/LiabilityStatement",
                   "description": "inline description of LiabilityStatement"
                 },
                 {
@@ -2261,7 +2155,6 @@
           ]
         },
         "metadataDistribution": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#metadataDistribution",
           "title": "metadata distribution",
           "description": "Distribution to \"original\" metadata document",
           "oneOf": [
@@ -2273,7 +2166,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Distribution",
+                    "$ref": "#/$defs/Distribution",
                     "description": "inline description of Distribution"
                   },
                   {
@@ -2287,7 +2180,6 @@
           ]
         },
         "purpose": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#purpose",
           "title": "purpose",
           "description": "The purpose of the dataset",
           "oneOf": [
@@ -2300,7 +2192,6 @@
           ]
         },
         "purposeMap": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#purpose_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -2308,7 +2199,6 @@
           ]
         },
         "accessRights": {
-          "$id": "http://purl.org/dc/terms/accessRights",
           "title": "access rights",
           "description": "Information that indicates whether the Dataset is open data, has access restrictions or is public.",
           "oneOf": [
@@ -2318,7 +2208,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/RightsStatement",
+                  "$ref": "#/$defs/RightsStatement",
                   "description": "inline description of RightsStatement"
                 },
                 {
@@ -2331,7 +2221,6 @@
           ]
         },
         "accrualPeriodicity": {
-          "$id": "http://purl.org/dc/terms/accrualPeriodicity",
           "title": "frequency",
           "description": "This property refers to the frequency at which the Dataset is updated.",
           "oneOf": [
@@ -2341,7 +2230,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Frequency",
+                  "$ref": "#/$defs/Frequency",
                   "description": "inline description of Frequency"
                 },
                 {
@@ -2354,7 +2243,6 @@
           ]
         },
         "conformsTo": {
-          "$id": "http://purl.org/dc/terms/conformsTo",
           "title": "conforms to",
           "description": "This property refers to an standard which the described Dataset conforms.",
           "oneOf": [
@@ -2366,7 +2254,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Standard",
+                    "$ref": "#/$defs/Standard",
                     "description": "inline description of Standard"
                   },
                   {
@@ -2380,7 +2268,6 @@
           ]
         },
         "contributor": {
-          "$id": "http://purl.org/dc/terms/contributor",
           "title": "contributor",
           "description": "This property refers to an agent contributing to the Dataset.",
           "oneOf": [
@@ -2392,7 +2279,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Agent",
+                    "$ref": "#/$defs/Agent",
                     "description": "inline description of Agent"
                   },
                   {
@@ -2406,7 +2293,6 @@
           ]
         },
         "created": {
-          "$id": "http://purl.org/dc/terms/created",
           "title": "creation date",
           "description": "This property contains the date on which the Dataset has been first created.",
           "oneOf": [
@@ -2435,7 +2321,6 @@
           ]
         },
         "creator": {
-          "$id": "http://purl.org/dc/terms/creator",
           "title": "creator",
           "description": "This property refers to an entity responsible for producing the dataset.",
           "oneOf": [
@@ -2445,7 +2330,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Agent",
+                  "$ref": "#/$defs/Agent",
                   "description": "inline description of Agent"
                 },
                 {
@@ -2458,13 +2343,11 @@
           ]
         },
         "description": {
-          "$id": "http://purl.org/dc/terms/description",
           "title": "description",
           "description": "This property contains a free-text account of the Dataset.  ",
           "type": "string"
         },
         "descriptionMap": {
-          "$id": "http://purl.org/dc/terms/description_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -2472,7 +2355,6 @@
           ]
         },
         "hasPart": {
-          "$id": "http://purl.org/dc/terms/hasPart",
           "title": "has part",
           "description": "This property refers to a related dataset that is part of the described dataset.",
           "oneOf": [
@@ -2484,7 +2366,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Dataset",
+                    "$ref": "#/$defs/Dataset",
                     "description": "inline description of Dataset"
                   },
                   {
@@ -2498,7 +2380,6 @@
           ]
         },
         "identifier": {
-          "$id": "http://purl.org/dc/terms/identifier",
           "title": "identifier",
           "description": "This property contains the unique identifier for the Dataset, e.g. the URI or other unique identifier in the context of the Catalog.",
           "oneOf": [
@@ -2514,7 +2395,6 @@
           ]
         },
         "isReferencedBy": {
-          "$id": "http://purl.org/dc/terms/isReferencedBy",
           "title": "is referenced by",
           "description": "This property is about a related resource, such as a publication, that references, cites, or otherwise points to the Dataset.",
           "oneOf": [
@@ -2526,7 +2406,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Resource",
+                    "$ref": "#/$defs/Resource",
                     "description": "inline description of Resource"
                   },
                   {
@@ -2540,7 +2420,6 @@
           ]
         },
         "issued": {
-          "$id": "http://purl.org/dc/terms/issued",
           "title": "release date",
           "description": "Date of formal issuance (e.g., publication) of the dataset.",
           "oneOf": [
@@ -2569,7 +2448,6 @@
           ]
         },
         "language": {
-          "$id": "http://purl.org/dc/terms/language",
           "title": "language",
           "description": "A language used in the Dataset.",
           "oneOf": [
@@ -2581,7 +2459,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/LinguisticSystem",
+                    "$ref": "#/$defs/LinguisticSystem",
                     "description": "inline description of LinguisticSystem"
                   },
                   {
@@ -2595,7 +2473,6 @@
           ]
         },
         "modified": {
-          "$id": "http://purl.org/dc/terms/modified",
           "title": "last modified",
           "description": "The most recent date on which the Dataset was changed or modified.",
           "oneOf": [
@@ -2624,7 +2501,6 @@
           ]
         },
         "provenance": {
-          "$id": "http://purl.org/dc/terms/provenance",
           "title": "provenance",
           "description": "A statement about the lineage of a Dataset",
           "oneOf": [
@@ -2636,7 +2512,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/ProvenanceStatement",
+                    "$ref": "#/$defs/ProvenanceStatement",
                     "description": "inline description of ProvenanceStatement"
                   },
                   {
@@ -2650,12 +2526,11 @@
           ]
         },
         "publisher": {
-          "$id": "http://purl.org/dc/terms/publisher",
           "title": "publisher",
           "description": "This property refers to an organisation responsible for making the Dataset available.",
           "oneOf": [
             {
-              "$ref": "#/definitions/Organization",
+              "$ref": "#/$defs/Organization",
               "description": "inline description of Organization"
             },
             {
@@ -2666,7 +2541,6 @@
           ]
         },
         "relation": {
-          "$id": "http://purl.org/dc/terms/relation",
           "title": "related resource",
           "description": "Reference to a related source",
           "oneOf": [
@@ -2678,7 +2552,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Resource",
+                    "$ref": "#/$defs/Resource",
                     "description": "inline description of Resource"
                   },
                   {
@@ -2692,7 +2566,6 @@
           ]
         },
         "replaces": {
-          "$id": "http://purl.org/dc/terms/replaces",
           "title": "replaces",
           "description": "Reference to the replaced Dataset",
           "oneOf": [
@@ -2704,7 +2577,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Dataset",
+                    "$ref": "#/$defs/Dataset",
                     "description": "inline description of Dataset"
                   },
                   {
@@ -2718,7 +2591,6 @@
           ]
         },
         "rights": {
-          "$id": "http://purl.org/dc/terms/rights",
           "title": "rights",
           "description": "A statement that concerns all rights for the Dataset not addressed with dcterms:license or dcterms:accessRights, such as copyright statements.",
           "oneOf": [
@@ -2728,7 +2600,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/RightsStatement",
+                  "$ref": "#/$defs/RightsStatement",
                   "description": "inline description of RightsStatement"
                 },
                 {
@@ -2741,7 +2613,6 @@
           ]
         },
         "rightsHolder": {
-          "$id": "http://purl.org/dc/terms/rightsHolder",
           "title": "rights holder",
           "description": "This property refers to an Agent (organization) holding rights on the Dataset.",
           "oneOf": [
@@ -2753,7 +2624,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Organization",
+                    "$ref": "#/$defs/Organization",
                     "description": "inline description of Organization"
                   },
                   {
@@ -2767,7 +2638,6 @@
           ]
         },
         "source": {
-          "$id": "http://purl.org/dc/terms/source",
           "title": "data source",
           "description": "Reference to the source of the dataset",
           "oneOf": [
@@ -2779,7 +2649,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Resource",
+                    "$ref": "#/$defs/Resource",
                     "description": "inline description of Resource"
                   },
                   {
@@ -2793,7 +2663,6 @@
           ]
         },
         "spatial": {
-          "$id": "http://purl.org/dc/terms/spatial",
           "title": "spatial/geographic coverage",
           "description": "This property refers to a geographic region that is covered by the Dataset.",
           "oneOf": [
@@ -2805,7 +2674,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Location",
+                    "$ref": "#/$defs/Location",
                     "description": "inline description of Location"
                   },
                   {
@@ -2819,7 +2688,6 @@
           ]
         },
         "subject": {
-          "$id": "http://purl.org/dc/terms/subject",
           "title": "subject",
           "description": "Primary subject of the dataset",
           "oneOf": [
@@ -2831,7 +2699,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Concept",
+                    "$ref": "#/$defs/Concept",
                     "description": "inline description of Concept"
                   },
                   {
@@ -2845,7 +2713,6 @@
           ]
         },
         "temporal": {
-          "$id": "http://purl.org/dc/terms/temporal",
           "title": "temporal coverage",
           "description": "A temporal period that the dataset  covers.",
           "oneOf": [
@@ -2857,7 +2724,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/PeriodOfTime",
+                    "$ref": "#/$defs/PeriodOfTime",
                     "description": "inline description of PeriodOfTime"
                   },
                   {
@@ -2871,13 +2738,11 @@
           ]
         },
         "title": {
-          "$id": "http://purl.org/dc/terms/title",
           "title": "title",
           "description": "This property contains a name given to the Dataset. This property can be repeated for parallel language versions of the name",
           "type": "string"
         },
         "titleMap": {
-          "$id": "http://purl.org/dc/terms/title_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -2885,7 +2750,6 @@
           ]
         },
         "category": {
-          "$id": "http://purl.org/dc/terms/type",
           "title": "category",
           "description": "Category of the dataset",
           "oneOf": [
@@ -2897,7 +2761,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Concept",
+                    "$ref": "#/$defs/Concept",
                     "description": "inline description of Concept"
                   },
                   {
@@ -2911,7 +2775,6 @@
           ]
         },
         "hasQualityMeasurement": {
-          "$id": "http://www.w3.org/ns/dqv#hasQualityMeasurement",
           "title": "quality measurement",
           "description": "property referring to a quality measurement for the dataset",
           "oneOf": [
@@ -2923,7 +2786,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/QualityMeasurement",
+                    "$ref": "#/$defs/QualityMeasurement",
                     "description": "inline description of QualityMeasurement"
                   },
                   {
@@ -2937,7 +2800,6 @@
           ]
         },
         "page": {
-          "$id": "http://xmlns.com/foaf/0.1/page",
           "title": "documentation",
           "description": "A page or document about this dataset",
           "oneOf": [
@@ -2949,7 +2811,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Document",
+                    "$ref": "#/$defs/Document",
                     "description": "inline description of Document"
                   },
                   {
@@ -2963,7 +2825,6 @@
           ]
         },
         "qualifiedAttribution": {
-          "$id": "http://www.w3.org/ns/prov#qualifiedAttribution",
           "title": "qualified attribution",
           "description": "An agent having some form of responsibility for the dataset",
           "oneOf": [
@@ -2975,7 +2836,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Attribution",
+                    "$ref": "#/$defs/Attribution",
                     "description": "inline description of Attribution"
                   },
                   {
@@ -2989,7 +2850,6 @@
           ]
         },
         "wasAttributedTo": {
-          "$id": "http://www.w3.org/ns/prov#wasAttributedTo",
           "title": "attribution",
           "description": "Agent attributed to this dataset",
           "oneOf": [
@@ -3001,7 +2861,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Agent",
+                    "$ref": "#/$defs/Agent",
                     "description": "inline description of Agent"
                   },
                   {
@@ -3015,7 +2875,6 @@
           ]
         },
         "wasGeneratedBy": {
-          "$id": "http://www.w3.org/ns/prov#wasGeneratedBy",
           "title": "was generated by",
           "description": "An activity that generated, or provides the business context for, the creation of the dataset",
           "oneOf": [
@@ -3027,7 +2886,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Activity",
+                    "$ref": "#/$defs/Activity",
                     "description": "inline description of Activity"
                   },
                   {
@@ -3041,7 +2900,6 @@
           ]
         },
         "wasUsedBy": {
-          "$id": "http://www.w3.org/ns/prov#wasUsedBy",
           "title": "used by",
           "description": "This property refers to an Activity that used the Dataset",
           "oneOf": [
@@ -3053,7 +2911,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Activity",
+                    "$ref": "#/$defs/Activity",
                     "description": "inline description of Activity"
                   },
                   {
@@ -3067,7 +2925,6 @@
           ]
         },
         "image": {
-          "$id": "https://schema.org/image",
           "title": "image",
           "description": "A thumbnail picture illustrating the content of the dataset.",
           "oneOf": [
@@ -3079,7 +2936,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/ImageObject",
+                    "$ref": "#/$defs/ImageObject",
                     "description": "inline description of ImageObject"
                   },
                   {
@@ -3093,7 +2950,6 @@
           ]
         },
         "scopeNote": {
-          "$id": "http://www.w3.org/2004/02/skos/core#scopeNote",
           "title": "usage note",
           "description": "usage note for the dataset",
           "oneOf": [
@@ -3106,7 +2962,6 @@
           ]
         },
         "scopeNoteMap": {
-          "$id": "http://www.w3.org/2004/02/skos/core#scopeNote_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -3134,7 +2989,6 @@
           "default": "ProvenanceStatement"
         },
         "label": {
-          "$id": "http://www.w3.org/2000/01/rdf-schema#label",
           "title": "provenance statement text",
           "description": "This property contains the text of the Provenance Statement. This property can be repeated for parallel language versions of the name",
           "oneOf": [
@@ -3147,7 +3001,6 @@
           ]
         },
         "labelMap": {
-          "$id": "http://www.w3.org/2000/01/rdf-schema#label_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -3171,7 +3024,6 @@
           "default": "Kind"
         },
         "address": {
-          "$id": "http://www.w3.org/2006/vcard/ns#address",
           "title": "address",
           "description": "This property specifies the address of the contact",
           "oneOf": [
@@ -3183,7 +3035,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Address",
+                    "$ref": "#/$defs/Address",
                     "description": "inline description of Address"
                   },
                   {
@@ -3197,12 +3049,11 @@
           ]
         },
         "hasEmail": {
-          "$id": "http://www.w3.org/2006/vcard/ns#hasEmail",
           "title": "email",
           "description": "The email address of the contact",
           "oneOf": [
             {
-              "$ref": "#/definitions/Resource",
+              "$ref": "#/$defs/Resource",
               "description": "inline description of Resource"
             },
             {
@@ -3213,7 +3064,6 @@
           ]
         },
         "family-name": {
-          "$id": "http://www.w3.org/2006/vcard/ns#family-name",
           "title": "family name",
           "description": "This property specifies the family name of the person to contact",
           "oneOf": [
@@ -3226,13 +3076,11 @@
           ]
         },
         "fn": {
-          "$id": "http://www.w3.org/2006/vcard/ns#fn",
           "title": "formatted name",
           "description": "The formatted text corresponding to the name of the contact",
           "type": "string"
         },
         "given-name": {
-          "$id": "http://www.w3.org/2006/vcard/ns#given-name",
           "title": "given name",
           "description": "This property specifies the given name of the person to contact",
           "oneOf": [
@@ -3245,7 +3093,6 @@
           ]
         },
         "organization-name": {
-          "$id": "http://www.w3.org/2006/vcard/ns#organization-name",
           "title": "organization name",
           "description": "This property specifies the name of the organization to contact",
           "oneOf": [
@@ -3258,7 +3105,6 @@
           ]
         },
         "tel": {
-          "$id": "http://www.w3.org/2006/vcard/ns#tel",
           "title": "telephone",
           "description": "This property specifies the telephone number for telephony communication with the person or organization.",
           "oneOf": [
@@ -3268,7 +3114,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Resource",
+                  "$ref": "#/$defs/Resource",
                   "description": "inline description of Resource"
                 },
                 {
@@ -3281,7 +3127,6 @@
           ]
         },
         "title": {
-          "$id": "http://www.w3.org/2006/vcard/ns#title",
           "title": "position title",
           "description": "This property specifies the position role of the person to contact",
           "oneOf": [
@@ -3313,7 +3158,6 @@
           "default": "Location"
         },
         "bbox": {
-          "$id": "http://www.w3.org/ns/dcat#bbox",
           "title": "bounding box",
           "description": "bounding box associated location (in any coordinate system)",
           "oneOf": [
@@ -3332,7 +3176,6 @@
           ]
         },
         "centroid": {
-          "$id": "http://www.w3.org/ns/dcat#centroid",
           "title": "centroid",
           "description": "The geographic center (centroid) of a spatial thing",
           "oneOf": [
@@ -3351,7 +3194,6 @@
           ]
         },
         "identifier": {
-          "$id": "http://purl.org/dc/terms/identifier",
           "title": "identifier",
           "description": "This property contains the geographic identifier for the Location, e.g., the URI or other unique identifier in the context of the relevant gazetteer.",
           "oneOf": [
@@ -3367,7 +3209,6 @@
           ]
         },
         "geometry": {
-          "$id": "http://www.w3.org/ns/locn#geometry",
           "title": "geometry",
           "description": "Associates a location with a corresponding geometry.",
           "oneOf": [
@@ -3386,7 +3227,6 @@
           ]
         },
         "inScheme": {
-          "$id": "http://www.w3.org/2004/02/skos/core#inScheme",
           "title": "gazetteer",
           "description": "This property MAY be used to specify the gazetteer to which the Location belongs.",
           "oneOf": [
@@ -3396,7 +3236,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/ConceptScheme",
+                  "$ref": "#/$defs/ConceptScheme",
                   "description": "inline description of ConceptScheme"
                 },
                 {
@@ -3409,7 +3249,6 @@
           ]
         },
         "altLabel": {
-          "$id": "http://www.w3.org/2004/02/skos/core#altLabel",
           "title": "alternative names",
           "description": "This property provides alternative names for a location",
           "oneOf": [
@@ -3422,7 +3261,6 @@
           ]
         },
         "altLabelMap": {
-          "$id": "http://www.w3.org/2004/02/skos/core#altLabel_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -3430,7 +3268,6 @@
           ]
         },
         "prefLabel": {
-          "$id": "http://www.w3.org/2004/02/skos/core#prefLabel",
           "title": "geographic name",
           "description": "This property contains a preferred label of the Location.",
           "oneOf": [
@@ -3443,7 +3280,6 @@
           ]
         },
         "prefLabelMap": {
-          "$id": "http://www.w3.org/2004/02/skos/core#prefLabel_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -3467,7 +3303,6 @@
           "default": "Catalog"
         },
         "catalog": {
-          "$id": "http://www.w3.org/ns/dcat#catalog",
           "title": "catalog",
           "description": "This property refers to a catalog whose contents are of interest in the context of this catalog.",
           "oneOf": [
@@ -3479,7 +3314,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Catalog",
+                    "$ref": "#/$defs/Catalog",
                     "description": "inline description of Catalog"
                   },
                   {
@@ -3493,7 +3328,6 @@
           ]
         },
         "contactPoint": {
-          "$id": "http://www.w3.org/ns/dcat#contactPoint",
           "title": "contact point",
           "description": "This property contains contact information that can be used for sending comments about the Catalogue.",
           "oneOf": [
@@ -3505,7 +3339,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Kind",
+                    "$ref": "#/$defs/Kind",
                     "description": "inline description of Kind"
                   },
                   {
@@ -3519,14 +3353,13 @@
           ]
         },
         "dataset": {
-          "$id": "http://www.w3.org/ns/dcat#dataset",
           "title": "dataset",
           "description": "This property links the Catalog with the Dataset(s) that is/are part of the Catalog.",
           "type": "array",
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Dataset",
+                "$ref": "#/$defs/Dataset",
                 "description": "inline description of Dataset"
               },
               {
@@ -3538,7 +3371,6 @@
           }
         },
         "keyword": {
-          "$id": "http://www.w3.org/ns/dcat#keyword",
           "title": "keyword/tag",
           "description": "A keyword or tag describing the resource.",
           "oneOf": [
@@ -3551,7 +3383,6 @@
           ]
         },
         "keywordMap": {
-          "$id": "http://www.w3.org/ns/dcat#keyword_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -3559,7 +3390,6 @@
           ]
         },
         "record": {
-          "$id": "http://www.w3.org/ns/dcat#record",
           "title": "catalog record",
           "description": "A record describing the registration of a single resource (e.g., a dataset, a data service) that is part of the catalog.",
           "oneOf": [
@@ -3571,7 +3401,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/CatalogRecord",
+                    "$ref": "#/$defs/CatalogRecord",
                     "description": "inline description of CatalogRecord"
                   },
                   {
@@ -3585,7 +3415,6 @@
           ]
         },
         "service": {
-          "$id": "http://www.w3.org/ns/dcat#service",
           "title": "service",
           "description": "This property refers to a site or end-point (Data Service) that is listed in the Catalog.",
           "oneOf": [
@@ -3597,7 +3426,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/DataService",
+                    "$ref": "#/$defs/DataService",
                     "description": "inline description of DataService"
                   },
                   {
@@ -3611,7 +3440,6 @@
           ]
         },
         "theme": {
-          "$id": "http://www.w3.org/ns/dcat#theme",
           "title": "theme/category",
           "description": "This property refers to a category of the Catalog. A Catalog may be associated with multiple themes.",
           "oneOf": [
@@ -3623,7 +3451,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Concept",
+                    "$ref": "#/$defs/Concept",
                     "description": "inline description of Concept"
                   },
                   {
@@ -3637,7 +3465,6 @@
           ]
         },
         "themeTaxonomy": {
-          "$id": "http://www.w3.org/ns/dcat#themeTaxonomy",
           "title": "themes",
           "description": "A knowledge organization system (KOS) used to classify the resources documented in the catalog (e.g., datasets and services).",
           "oneOf": [
@@ -3649,7 +3476,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/ConceptScheme",
+                    "$ref": "#/$defs/ConceptScheme",
                     "description": "inline description of ConceptScheme"
                   },
                   {
@@ -3663,7 +3490,6 @@
           ]
         },
         "accessRights": {
-          "$id": "http://purl.org/dc/terms/accessRights",
           "title": "access rights",
           "description": "This property refers to information that indicates whether the Catalog is open data, has access restrictions or is not public.",
           "oneOf": [
@@ -3673,7 +3499,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/RightsStatement",
+                  "$ref": "#/$defs/RightsStatement",
                   "description": "inline description of RightsStatement"
                 },
                 {
@@ -3686,7 +3512,6 @@
           ]
         },
         "conformsTo": {
-          "$id": "http://purl.org/dc/terms/conformsTo",
           "title": "schema version",
           "description": "An established standard to which the described catalog conforms.",
           "oneOf": [
@@ -3696,7 +3521,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Standard",
+                  "$ref": "#/$defs/Standard",
                   "description": "inline description of Standard"
                 },
                 {
@@ -3709,7 +3534,6 @@
           ]
         },
         "creator": {
-          "$id": "http://purl.org/dc/terms/creator",
           "title": "creator",
           "description": "The entity responsible for creating the resource.",
           "oneOf": [
@@ -3721,7 +3545,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Agent",
+                    "$ref": "#/$defs/Agent",
                     "description": "inline description of Agent"
                   },
                   {
@@ -3735,13 +3559,11 @@
           ]
         },
         "description": {
-          "$id": "http://purl.org/dc/terms/description",
           "title": "description",
           "description": "Free-text description of the catalog (in the language indicated in the attribute).",
           "type": "string"
         },
         "descriptionMap": {
-          "$id": "http://purl.org/dc/terms/description_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -3749,7 +3571,6 @@
           ]
         },
         "hasPart": {
-          "$id": "http://purl.org/dc/terms/hasPart",
           "title": "has part",
           "description": "This property refers to a related catalog that is part of the described catalog.",
           "oneOf": [
@@ -3761,7 +3582,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Catalog",
+                    "$ref": "#/$defs/Catalog",
                     "description": "inline description of Catalog"
                   },
                   {
@@ -3775,7 +3596,6 @@
           ]
         },
         "identifier": {
-          "$id": "http://purl.org/dc/terms/identifier",
           "title": "identifier",
           "description": "This property contains the main identifier for the Catalog, e.g. the URI or other unique identifier.",
           "oneOf": [
@@ -3791,7 +3611,6 @@
           ]
         },
         "issued": {
-          "$id": "http://purl.org/dc/terms/issued",
           "title": "release date",
           "description": "Date of formal issuance (e.g., publication) of the resource.",
           "oneOf": [
@@ -3820,7 +3639,6 @@
           ]
         },
         "language": {
-          "$id": "http://purl.org/dc/terms/language",
           "title": "language",
           "description": "This property refers to a language used in the textual metadata describing titles, descriptions, etc. of the Datasets in the Catalog.",
           "oneOf": [
@@ -3832,7 +3650,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/LinguisticSystem",
+                    "$ref": "#/$defs/LinguisticSystem",
                     "description": "inline description of LinguisticSystem"
                   },
                   {
@@ -3846,7 +3664,6 @@
           ]
         },
         "license": {
-          "$id": "http://purl.org/dc/terms/license",
           "title": "license",
           "description": "This property refers to the license under which the Catalog can be used or reused.",
           "oneOf": [
@@ -3856,7 +3673,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/LicenseDocument",
+                  "$ref": "#/$defs/LicenseDocument",
                   "description": "inline description of LicenseDocument"
                 },
                 {
@@ -3869,7 +3686,6 @@
           ]
         },
         "modified": {
-          "$id": "http://purl.org/dc/terms/modified",
           "title": "update/modification date",
           "description": "Most recent date on which the resource was changed, updated or modified.",
           "oneOf": [
@@ -3898,12 +3714,11 @@
           ]
         },
         "publisher": {
-          "$id": "http://purl.org/dc/terms/publisher",
           "title": "publisher",
           "description": "Entity responsible for making the catalog available.",
           "oneOf": [
             {
-              "$ref": "#/definitions/Agent",
+              "$ref": "#/$defs/Agent",
               "description": "inline description of Agent"
             },
             {
@@ -3914,7 +3729,6 @@
           ]
         },
         "rights": {
-          "$id": "http://purl.org/dc/terms/rights",
           "title": "rights",
           "description": "This property refers to a statement that specifies rights associated with the Catalogue.",
           "oneOf": [
@@ -3924,7 +3738,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/RightsStatement",
+                  "$ref": "#/$defs/RightsStatement",
                   "description": "inline description of RightsStatement"
                 },
                 {
@@ -3937,7 +3751,6 @@
           ]
         },
         "rightsHolder": {
-          "$id": "http://purl.org/dc/terms/rightsHolder",
           "title": "rights holder",
           "description": "This property refers to an organization holding rights on the Catalog.",
           "oneOf": [
@@ -3949,7 +3762,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Organization",
+                    "$ref": "#/$defs/Organization",
                     "description": "inline description of Organization"
                   },
                   {
@@ -3963,7 +3776,6 @@
           ]
         },
         "spatial": {
-          "$id": "http://purl.org/dc/terms/spatial",
           "title": "spatial/geographic coverage",
           "description": "The geographical area covered by the catalog.",
           "oneOf": [
@@ -3975,7 +3787,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Location",
+                    "$ref": "#/$defs/Location",
                     "description": "inline description of Location"
                   },
                   {
@@ -3989,7 +3801,6 @@
           ]
         },
         "subject": {
-          "$id": "http://purl.org/dc/terms/subject",
           "title": "subject",
           "description": "Primary subject of the catalog",
           "oneOf": [
@@ -4001,7 +3812,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Concept",
+                    "$ref": "#/$defs/Concept",
                     "description": "inline description of Concept"
                   },
                   {
@@ -4015,7 +3826,6 @@
           ]
         },
         "temporal": {
-          "$id": "http://purl.org/dc/terms/temporal",
           "title": "temporal coverage",
           "description": "A temporal period that the Catalog covers.",
           "oneOf": [
@@ -4027,7 +3837,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/PeriodOfTime",
+                    "$ref": "#/$defs/PeriodOfTime",
                     "description": "inline description of PeriodOfTime"
                   },
                   {
@@ -4041,13 +3851,11 @@
           ]
         },
         "title": {
-          "$id": "http://purl.org/dc/terms/title",
           "title": "title",
           "description": "The title of the catalog in the indicated language",
           "type": "string"
         },
         "titleMap": {
-          "$id": "http://purl.org/dc/terms/title_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -4055,7 +3863,6 @@
           ]
         },
         "category": {
-          "$id": "http://purl.org/dc/terms/type",
           "title": "category",
           "description": "The category of the Catalog ",
           "oneOf": [
@@ -4065,7 +3872,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -4078,7 +3885,6 @@
           ]
         },
         "homepage": {
-          "$id": "http://xmlns.com/foaf/0.1/homepage",
           "title": "homepage",
           "description": "A homepage of the catalog (a public Web document usually available in HTML).",
           "oneOf": [
@@ -4088,7 +3894,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Document",
+                  "$ref": "#/$defs/Document",
                   "description": "inline description of Document"
                 },
                 {
@@ -4101,7 +3907,6 @@
           ]
         },
         "qualifiedAttribution": {
-          "$id": "http://www.w3.org/ns/prov#qualifiedAttribution",
           "title": "qualified attribution",
           "description": "This property refers to a link to an Agent having some form of responsibility for the Catalog.",
           "oneOf": [
@@ -4113,7 +3918,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Attribution",
+                    "$ref": "#/$defs/Attribution",
                     "description": "inline description of Attribution"
                   },
                   {
@@ -4148,7 +3953,6 @@
           "default": "LiabilityStatement"
         },
         "label": {
-          "$id": "http://www.w3.org/2000/01/rdf-schema#label",
           "title": "liability statement text",
           "description": "Full text of the liability statement",
           "oneOf": [
@@ -4161,7 +3965,6 @@
           ]
         },
         "labelMap": {
-          "$id": "http://www.w3.org/2000/01/rdf-schema#label_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -4185,13 +3988,11 @@
           "default": "Organization"
         },
         "name": {
-          "$id": "http://xmlns.com/foaf/0.1/name",
           "title": "name",
           "description": "The full name of the Organization",
           "type": "string"
         },
         "subOrganizationOf": {
-          "$id": "http://www.w3.org/ns/org#subOrganizationOf",
           "title": "suborganization of",
           "description": "Represents hierarchical containment of Organizations or OrganizationalUnits; indicates an Organization which contains this Organization.",
           "oneOf": [
@@ -4203,7 +4004,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Organization",
+                    "$ref": "#/$defs/Organization",
                     "description": "inline description of Organization"
                   },
                   {
@@ -4217,7 +4018,6 @@
           ]
         },
         "altLabel": {
-          "$id": "http://www.w3.org/2004/02/skos/core#altLabel",
           "title": "alternative label",
           "description": "alternative names (trading names, colloquial names) for an organization",
           "oneOf": [
@@ -4230,7 +4030,6 @@
           ]
         },
         "altLabelMap": {
-          "$id": "http://www.w3.org/2004/02/skos/core#altLabel_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -4238,7 +4037,6 @@
           ]
         },
         "notation": {
-          "$id": "http://www.w3.org/2004/02/skos/core#notation",
           "title": "notation",
           "description": "abbreviations or codes from code lists for an organization (e.g. DOI, DOD)",
           "oneOf": [
@@ -4254,13 +4052,11 @@
           ]
         },
         "prefLabel": {
-          "$id": "http://www.w3.org/2004/02/skos/core#prefLabel",
           "title": "preferred label",
           "description": "Preferred or legal name of the organization",
           "type": "string"
         },
         "prefLabelMap": {
-          "$id": "http://www.w3.org/2004/02/skos/core#prefLabel_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -4287,7 +4083,6 @@
           "default": "LicenseDocument"
         },
         "licenseText": {
-          "$id": "http://spdx.org/rdf/terms#licenseText",
           "title": "license text",
           "description": "Full text of the license.",
           "oneOf": [
@@ -4316,7 +4111,6 @@
           "default": "PeriodOfTime"
         },
         "endDate": {
-          "$id": "http://www.w3.org/ns/dcat#endDate",
           "title": "end date",
           "description": "The end date of the period of time",
           "oneOf": [
@@ -4345,7 +4139,6 @@
           ]
         },
         "startDate": {
-          "$id": "http://www.w3.org/ns/dcat#startDate",
           "title": "start date",
           "description": "The start date of the period of time",
           "oneOf": [
@@ -4390,7 +4183,6 @@
           "default": "Person"
         },
         "familyName": {
-          "$id": "http://xmlns.com/foaf/0.1/familyName",
           "title": "family name",
           "description": "The family name of the Person",
           "oneOf": [
@@ -4403,7 +4195,6 @@
           ]
         },
         "givenName": {
-          "$id": "http://xmlns.com/foaf/0.1/givenName",
           "title": "given name",
           "description": "The given name of the Person",
           "oneOf": [
@@ -4416,13 +4207,11 @@
           ]
         },
         "name": {
-          "$id": "http://xmlns.com/foaf/0.1/name",
           "title": "name",
           "description": "The full name of the Person",
           "type": "string"
         },
         "memberOf": {
-          "$id": "http://www.w3.org/ns/org#memberOf",
           "title": "member of",
           "description": "This property MAY be used to specify the affiliation of the Person to an organization.",
           "oneOf": [
@@ -4434,7 +4223,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Organization",
+                    "$ref": "#/$defs/Organization",
                     "description": "inline description of Organization"
                   },
                   {
@@ -4466,7 +4255,6 @@
           "default": "RightsStatement"
         },
         "attributionText": {
-          "$id": "http://schema.theodi.org/odrs#attributionText",
           "title": "attribution text",
           "description": "The custom attribution text for the right statement",
           "oneOf": [
@@ -4479,7 +4267,6 @@
           ]
         },
         "attributionTextMap": {
-          "$id": "http://schema.theodi.org/odrs#attributionText_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -4503,7 +4290,6 @@
           "default": "Distribution"
         },
         "representationTechnique": {
-          "$id": "http://www.w3.org/ns/adms#representationTechnique",
           "title": "representation technique",
           "description": "This property MAY be used to provide more information about the format in which an Distribution is released. This is different from the file format as, for example, a ZIP file (file format) could contain an XML schema (representation technique). In DCAT-US profile,  this property SHOULD be used to express the spatial representation type (grid, vector, tin), by using the URIs of the corresponding code list operated by an approved registry. ",
           "oneOf": [
@@ -4513,7 +4299,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -4526,7 +4312,6 @@
           ]
         },
         "status": {
-          "$id": "http://www.w3.org/ns/adms#status",
           "title": "lifecycle status",
           "description": "The status of the distribution in the context of maturity lifecycle.",
           "oneOf": [
@@ -4536,7 +4321,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -4549,7 +4334,6 @@
           ]
         },
         "characterEncoding": {
-          "$id": "http://www.w3.org/2011/content#characterEncoding",
           "title": "character encoding",
           "description": "This property SHOULD be used to specify the character encoding of the Distribution, by using as value the character set names in the IANA register ",
           "oneOf": [
@@ -4565,7 +4349,6 @@
           ]
         },
         "accessService": {
-          "$id": "http://www.w3.org/ns/dcat#accessService",
           "title": "access service",
           "description": "A data service that gives access to the distribution of the dataset.",
           "oneOf": [
@@ -4577,7 +4360,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/DataService",
+                    "$ref": "#/$defs/DataService",
                     "description": "inline description of DataService"
                   },
                   {
@@ -4591,7 +4374,6 @@
           ]
         },
         "accessURL": {
-          "$id": "http://www.w3.org/ns/dcat#accessURL",
           "title": "access URL",
           "description": "A URL that gives access to a Distribution of the Dataset.",
           "oneOf": [
@@ -4601,7 +4383,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Resource",
+                  "$ref": "#/$defs/Resource",
                   "description": "inline description of Resource"
                 },
                 {
@@ -4614,7 +4396,6 @@
           ]
         },
         "byteSize": {
-          "$id": "http://www.w3.org/ns/dcat#byteSize",
           "title": "byte size",
           "description": "The size of a Distribution in bytes.",
           "oneOf": [
@@ -4627,7 +4408,6 @@
           ]
         },
         "compressFormat": {
-          "$id": "http://www.w3.org/ns/dcat#compressFormat",
           "title": "compression format",
           "description": "The format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file",
           "oneOf": [
@@ -4637,7 +4417,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/MediaType",
+                  "$ref": "#/$defs/MediaType",
                   "description": "inline description of MediaType"
                 },
                 {
@@ -4650,7 +4430,6 @@
           ]
         },
         "downloadURL": {
-          "$id": "http://www.w3.org/ns/dcat#downloadURL",
           "title": "download URL",
           "description": "A URL that is a direct link to a downloadable file in a given format.",
           "oneOf": [
@@ -4660,7 +4439,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Resource",
+                  "$ref": "#/$defs/Resource",
                   "description": "inline description of Resource"
                 },
                 {
@@ -4673,7 +4452,6 @@
           ]
         },
         "mediaType": {
-          "$id": "http://www.w3.org/ns/dcat#mediaType",
           "title": "media type",
           "description": "The media type of the Distribution as defined in the official register of media types managed by IANA.",
           "oneOf": [
@@ -4683,7 +4461,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/MediaType",
+                  "$ref": "#/$defs/MediaType",
                   "description": "inline description of MediaType"
                 },
                 {
@@ -4696,7 +4474,6 @@
           ]
         },
         "packageFormat": {
-          "$id": "http://www.w3.org/ns/dcat#packageFormat",
           "title": "packaging format",
           "description": "The format of the file in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together.",
           "oneOf": [
@@ -4706,7 +4483,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/MediaType",
+                  "$ref": "#/$defs/MediaType",
                   "description": "inline description of MediaType"
                 },
                 {
@@ -4719,7 +4496,6 @@
           ]
         },
         "spatialResolutionInMeters": {
-          "$id": "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
           "title": "Spatial resolution (meters)",
           "description": "The minimum spatial separation resolvable in a dataset distribution, measured in meters.",
           "oneOf": [
@@ -4732,7 +4508,6 @@
           ]
         },
         "temporalResolution": {
-          "$id": "http://www.w3.org/ns/dcat#temporalResolution",
           "title": "termporal resolution",
           "description": "The minimum time period resolvable in the dataset distribution.",
           "oneOf": [
@@ -4745,7 +4520,6 @@
           ]
         },
         "availability": {
-          "$id": "http://data.europa.eu/r5r/availability",
           "title": "availability",
           "description": "An indication how long it is planned to keep the Distribution of the Dataset available.",
           "oneOf": [
@@ -4755,7 +4529,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -4768,7 +4542,6 @@
           ]
         },
         "accessRestriction": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#accessRestriction",
           "title": "access restriction",
           "description": "Access restriction related to the distribution",
           "oneOf": [
@@ -4780,7 +4553,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/AccessRestriction",
+                    "$ref": "#/$defs/AccessRestriction",
                     "description": "inline description of AccessRestriction"
                   },
                   {
@@ -4794,7 +4567,6 @@
           ]
         },
         "cuiRestriction": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#cuiRestriction",
           "title": "CUI restriction",
           "description": "Controlled Unclassified Information restriction related to the distribution",
           "oneOf": [
@@ -4804,7 +4576,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/CUIRestriction",
+                  "$ref": "#/$defs/CUIRestriction",
                   "description": "inline description of CUIRestriction"
                 },
                 {
@@ -4817,7 +4589,6 @@
           ]
         },
         "describedBy": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#describedBy",
           "title": "data dictionary",
           "description": "This property refers to a distribution describing the Data Dictionary.",
           "oneOf": [
@@ -4827,7 +4598,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Distribution",
+                  "$ref": "#/$defs/Distribution",
                   "description": "inline description of Distribution"
                 },
                 {
@@ -4840,7 +4611,6 @@
           ]
         },
         "useRestriction": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#useRestriction",
           "title": "use restriction",
           "description": "Use restriction related to the distribution",
           "oneOf": [
@@ -4852,7 +4622,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/UseRestriction",
+                    "$ref": "#/$defs/UseRestriction",
                     "description": "inline description of UseRestriction"
                   },
                   {
@@ -4866,7 +4636,6 @@
           ]
         },
         "accessRights": {
-          "$id": "http://purl.org/dc/terms/accessRights",
           "title": "access rights",
           "description": "This property MAY include information regarding access or restrictions based on privacy, security, or other policies.",
           "oneOf": [
@@ -4876,7 +4645,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/RightsStatement",
+                  "$ref": "#/$defs/RightsStatement",
                   "description": "inline description of RightsStatement"
                 },
                 {
@@ -4889,7 +4658,6 @@
           ]
         },
         "conformsTo": {
-          "$id": "http://purl.org/dc/terms/conformsTo",
           "title": "linked schemas",
           "description": "This property refers to an established schema or reference systems which the described Distribution conforms.",
           "oneOf": [
@@ -4901,7 +4669,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Standard",
+                    "$ref": "#/$defs/Standard",
                     "description": "inline description of Standard"
                   },
                   {
@@ -4915,7 +4683,6 @@
           ]
         },
         "description": {
-          "$id": "http://purl.org/dc/terms/description",
           "title": "description",
           "description": "A free-text account of the Distribution.",
           "oneOf": [
@@ -4928,7 +4695,6 @@
           ]
         },
         "descriptionMap": {
-          "$id": "http://purl.org/dc/terms/description_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -4936,7 +4702,6 @@
           ]
         },
         "format": {
-          "$id": "http://purl.org/dc/terms/format",
           "title": "format",
           "description": "The file format of the Distribution.",
           "oneOf": [
@@ -4946,7 +4711,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/MediaType",
+                  "$ref": "#/$defs/MediaType",
                   "description": "inline description of MediaType"
                 },
                 {
@@ -4959,7 +4724,6 @@
           ]
         },
         "identifier": {
-          "$id": "http://purl.org/dc/terms/identifier",
           "title": "identifier",
           "description": "This property contains a unique identifier for the Distribution (e.g. DOI, ISBN)",
           "oneOf": [
@@ -4975,7 +4739,6 @@
           ]
         },
         "issued": {
-          "$id": "http://purl.org/dc/terms/issued",
           "title": "release date",
           "description": "The date of formal issuance (e.g., publication) of the Distribution.",
           "oneOf": [
@@ -5004,7 +4767,6 @@
           ]
         },
         "language": {
-          "$id": "http://purl.org/dc/terms/language",
           "title": "language",
           "description": "A language used in the Distribution.",
           "oneOf": [
@@ -5016,7 +4778,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/LinguisticSystem",
+                    "$ref": "#/$defs/LinguisticSystem",
                     "description": "inline description of LinguisticSystem"
                   },
                   {
@@ -5030,7 +4792,6 @@
           ]
         },
         "license": {
-          "$id": "http://purl.org/dc/terms/license",
           "title": "license",
           "description": "A licence under which the Distribution is made available.",
           "oneOf": [
@@ -5040,7 +4801,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/LicenseDocument",
+                  "$ref": "#/$defs/LicenseDocument",
                   "description": "inline description of LicenseDocument"
                 },
                 {
@@ -5053,7 +4814,6 @@
           ]
         },
         "modified": {
-          "$id": "http://purl.org/dc/terms/modified",
           "title": "last modified",
           "description": "The most recent date on which the Distribution was changed or modified.",
           "oneOf": [
@@ -5082,7 +4842,6 @@
           ]
         },
         "rights": {
-          "$id": "http://purl.org/dc/terms/rights",
           "title": "rights",
           "description": "A statement that specifies rights associated with the Distribution.",
           "oneOf": [
@@ -5092,7 +4851,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/RightsStatement",
+                  "$ref": "#/$defs/RightsStatement",
                   "description": "inline description of RightsStatement"
                 },
                 {
@@ -5105,7 +4864,6 @@
           ]
         },
         "title": {
-          "$id": "http://purl.org/dc/terms/title",
           "title": "title",
           "description": "A name given to the Distribution.",
           "oneOf": [
@@ -5118,7 +4876,6 @@
           ]
         },
         "titleMap": {
-          "$id": "http://purl.org/dc/terms/title_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -5126,7 +4883,6 @@
           ]
         },
         "hasQualityMeasurement": {
-          "$id": "http://www.w3.org/ns/dqv#hasQualityMeasurement",
           "title": "quality measurement",
           "description": "property referring to a quality measurement for the distribution",
           "oneOf": [
@@ -5138,7 +4894,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/QualityMeasurement",
+                    "$ref": "#/$defs/QualityMeasurement",
                     "description": "inline description of QualityMeasurement"
                   },
                   {
@@ -5152,7 +4908,6 @@
           ]
         },
         "page": {
-          "$id": "http://xmlns.com/foaf/0.1/page",
           "title": "documentation",
           "description": "A page or document about this Distribution.",
           "oneOf": [
@@ -5164,7 +4919,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Document",
+                    "$ref": "#/$defs/Document",
                     "description": "inline description of Document"
                   },
                   {
@@ -5178,7 +4933,6 @@
           ]
         },
         "image": {
-          "$id": "https://schema.org/image",
           "title": "image",
           "description": "A thumbnail picture illustrating the content of the distribution",
           "oneOf": [
@@ -5190,7 +4944,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/ImageObject",
+                    "$ref": "#/$defs/ImageObject",
                     "description": "inline description of ImageObject"
                   },
                   {
@@ -5204,7 +4958,6 @@
           ]
         },
         "checksum": {
-          "$id": "http://spdx.org/rdf/terms#checksum",
           "title": "checksum",
           "description": "A mechanism that can be used to verify that the contents of a distribution have not changed.",
           "oneOf": [
@@ -5214,7 +4967,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Checksum",
+                  "$ref": "#/$defs/Checksum",
                   "description": "inline description of Checksum"
                 },
                 {
@@ -5243,7 +4996,6 @@
           "default": "Concept"
         },
         "altLabel": {
-          "$id": "http://www.w3.org/2004/02/skos/core#altLabel",
           "title": "alternate label",
           "description": "Alternative labels for a concept.",
           "oneOf": [
@@ -5256,7 +5008,6 @@
           ]
         },
         "altLabelMap": {
-          "$id": "http://www.w3.org/2004/02/skos/core#altLabel_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -5264,7 +5015,6 @@
           ]
         },
         "definition": {
-          "$id": "http://www.w3.org/2004/02/skos/core#definition",
           "title": "definition",
           "description": "Definition of the controlled vocabulary term.",
           "oneOf": [
@@ -5277,7 +5027,6 @@
           ]
         },
         "definitionMap": {
-          "$id": "http://www.w3.org/2004/02/skos/core#definition_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -5285,12 +5034,11 @@
           ]
         },
         "inScheme": {
-          "$id": "http://www.w3.org/2004/02/skos/core#inScheme",
           "title": "in scheme",
           "description": "\nConcept scheme defining the concept.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ConceptScheme",
+              "$ref": "#/$defs/ConceptScheme",
               "description": "inline description of ConceptScheme"
             },
             {
@@ -5301,7 +5049,6 @@
           ]
         },
         "notation": {
-          "$id": "http://www.w3.org/2004/02/skos/core#notation",
           "title": "notation",
           "description": "abbreviations or codes from code lists for an organization.",
           "oneOf": [
@@ -5317,13 +5064,11 @@
           ]
         },
         "prefLabel": {
-          "$id": "http://www.w3.org/2004/02/skos/core#prefLabel",
           "title": "preferred label",
           "description": "Preferred label for the controlled vocabulary term (one per language).",
           "type": "string"
         },
         "prefLabelMap": {
-          "$id": "http://www.w3.org/2004/02/skos/core#prefLabel_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -5350,12 +5095,11 @@
           "default": "Checksum"
         },
         "algorithm": {
-          "$id": "http://spdx.org/rdf/terms#algorithm",
           "title": "algorithm",
           "description": "The algorithm used to produce the subject Checksum.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ChecksumAlgorithm",
+              "$ref": "#/$defs/ChecksumAlgorithm",
               "description": "inline description of ChecksumAlgorithm"
             },
             {
@@ -5366,7 +5110,6 @@
           ]
         },
         "checksumValue": {
-          "$id": "http://spdx.org/rdf/terms#checksumValue",
           "title": "checksum value",
           "description": "A lower case hexadecimal encoded digest value produced using a specific algorithm.",
           "type": "string"
@@ -5391,7 +5134,6 @@
           "default": "MediaType"
         },
         "label": {
-          "$id": "http://www.w3.org/2000/01/rdf-schema#label",
           "title": "label",
           "description": "This property contains the denomination of the Media Type.",
           "oneOf": [
@@ -5404,7 +5146,6 @@
           ]
         },
         "labelMap": {
-          "$id": "http://www.w3.org/2000/01/rdf-schema#label_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -5428,7 +5169,6 @@
           "default": "Identifier"
         },
         "schemaAgency": {
-          "$id": "http://www.w3.org/ns/adms#schemaAgency",
           "title": "schema agency",
           "description": "The name of the agency that issued the identifier.",
           "oneOf": [
@@ -5441,7 +5181,6 @@
           ]
         },
         "creator": {
-          "$id": "http://purl.org/dc/terms/creator",
           "title": "creator",
           "description": "the agency that manages the identifier scheme",
           "oneOf": [
@@ -5451,7 +5190,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Organization",
+                  "$ref": "#/$defs/Organization",
                   "description": "inline description of Organization"
                 },
                 {
@@ -5464,7 +5203,6 @@
           ]
         },
         "issued": {
-          "$id": "http://purl.org/dc/terms/issued",
           "title": "issued",
           "description": "The date of formal issuance (e.g., publication) of the Identiifer.",
           "oneOf": [
@@ -5493,7 +5231,6 @@
           ]
         },
         "version": {
-          "$id": "http://purl.org/dc/terms/version",
           "title": "version",
           "description": "version of the identifier scheme",
           "oneOf": [
@@ -5506,7 +5243,6 @@
           ]
         },
         "notation": {
-          "$id": "http://www.w3.org/2004/02/skos/core#notation",
           "title": "notation",
           "description": "abbreviations or codes from code lists for an identifier",
           "oneOf": [
@@ -5535,14 +5271,13 @@
           "default": "DataService"
         },
         "contactPoint": {
-          "$id": "http://www.w3.org/ns/dcat#contactPoint",
           "title": "contact point",
           "description": "This property contains contact information that can be used for sending comments about the Data Service.",
           "type": "array",
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Kind",
+                "$ref": "#/$defs/Kind",
                 "description": "inline description of Kind"
               },
               {
@@ -5554,7 +5289,6 @@
           }
         },
         "endpointDescription": {
-          "$id": "http://www.w3.org/ns/dcat#endpointDescription",
           "title": "endpoint description",
           "description": "A description of the services available via the end-points, including their operations, parameters etc.",
           "oneOf": [
@@ -5566,7 +5300,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Resource",
+                    "$ref": "#/$defs/Resource",
                     "description": "inline description of Resource"
                   },
                   {
@@ -5580,14 +5314,13 @@
           ]
         },
         "endpointURL": {
-          "$id": "http://www.w3.org/ns/dcat#endpointURL",
           "title": "endpoint URL",
           "description": "The root location or primary endpoint of the service (a Web-resolvable IRI)",
           "type": "array",
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Resource",
+                "$ref": "#/$defs/Resource",
                 "description": "inline description of Resource"
               },
               {
@@ -5599,7 +5332,6 @@
           }
         },
         "keyword": {
-          "$id": "http://www.w3.org/ns/dcat#keyword",
           "title": "keyword/tag",
           "description": "This property contains a keyword or tag describing the Data Service.",
           "oneOf": [
@@ -5612,7 +5344,6 @@
           ]
         },
         "keywordMap": {
-          "$id": "http://www.w3.org/ns/dcat#keyword_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -5620,7 +5351,6 @@
           ]
         },
         "servesDataset": {
-          "$id": "http://www.w3.org/ns/dcat#servesDataset",
           "title": "serves dataset",
           "description": "The Dataset that is served by this data service.",
           "oneOf": [
@@ -5632,7 +5362,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Dataset",
+                    "$ref": "#/$defs/Dataset",
                     "description": "inline description of Dataset"
                   },
                   {
@@ -5646,7 +5376,6 @@
           ]
         },
         "spatialResolutionInMeters": {
-          "$id": "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
           "title": "spatial resolution in meters",
           "description": "This property refers to the minimum spatial separation resolvable in a Data Service, measured in meters.",
           "oneOf": [
@@ -5662,7 +5391,6 @@
           ]
         },
         "temporalResolution": {
-          "$id": "http://www.w3.org/ns/dcat#temporalResolution",
           "title": "temporal resolution",
           "description": "The minimum time period resolvable by the Data Service.",
           "oneOf": [
@@ -5678,7 +5406,6 @@
           ]
         },
         "theme": {
-          "$id": "http://www.w3.org/ns/dcat#theme",
           "title": "theme/category",
           "description": "This property refers to a theme of the Data Service. A Data Service may be associated with multiple themes.",
           "oneOf": [
@@ -5690,7 +5417,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Concept",
+                    "$ref": "#/$defs/Concept",
                     "description": "inline description of Concept"
                   },
                   {
@@ -5704,7 +5431,6 @@
           ]
         },
         "geographicBoundingBox": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#geographicBoundingBox",
           "title": "geographic bounding box",
           "description": "This property describes the spatial extent of domain of application of an data service and is standardized in WGS 84 Lat/Long coordinate system.",
           "oneOf": [
@@ -5716,7 +5442,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/GeographicBoundingBox",
+                    "$ref": "#/$defs/GeographicBoundingBox",
                     "description": "inline description of GeographicBoundingBox"
                   },
                   {
@@ -5730,7 +5456,6 @@
           ]
         },
         "accessRights": {
-          "$id": "http://purl.org/dc/terms/accessRights",
           "title": "access rights",
           "description": "This property MAY include information regarding access or restrictions based on privacy, security, or other policies.",
           "oneOf": [
@@ -5740,7 +5465,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/RightsStatement",
+                  "$ref": "#/$defs/RightsStatement",
                   "description": "inline description of RightsStatement"
                 },
                 {
@@ -5753,7 +5478,6 @@
           ]
         },
         "conformsTo": {
-          "$id": "http://purl.org/dc/terms/conformsTo",
           "title": "conforms to",
           "description": "This property is used to indicate the general standard or specification that the Data Service endpoints implement.",
           "oneOf": [
@@ -5765,7 +5489,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Standard",
+                    "$ref": "#/$defs/Standard",
                     "description": "inline description of Standard"
                   },
                   {
@@ -5779,7 +5503,6 @@
           ]
         },
         "created": {
-          "$id": "http://purl.org/dc/terms/created",
           "title": "creation date",
           "description": "This property contains the date on which the Data Service has been first created.",
           "oneOf": [
@@ -5808,7 +5531,6 @@
           ]
         },
         "creator": {
-          "$id": "http://purl.org/dc/terms/creator",
           "title": "creator",
           "description": "This property refers to the Agent primarily responsible for producing the Data Service.",
           "oneOf": [
@@ -5820,7 +5542,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Agent",
+                    "$ref": "#/$defs/Agent",
                     "description": "inline description of Agent"
                   },
                   {
@@ -5834,7 +5556,6 @@
           ]
         },
         "description": {
-          "$id": "http://purl.org/dc/terms/description",
           "title": "description",
           "description": "This property contains a free-text account of the Data Service.",
           "oneOf": [
@@ -5847,7 +5568,6 @@
           ]
         },
         "descriptionMap": {
-          "$id": "http://purl.org/dc/terms/description_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -5855,7 +5575,6 @@
           ]
         },
         "identifier": {
-          "$id": "http://purl.org/dc/terms/identifier",
           "title": "identifier",
           "description": "This property contains the main identifier for the Data Service, e.g. the URI or other unique identifier in the context of the Catalog.",
           "oneOf": [
@@ -5871,7 +5590,6 @@
           ]
         },
         "language": {
-          "$id": "http://purl.org/dc/terms/language",
           "title": "language",
           "description": "This property refers to a language supported by the Data Service. This property can be repeated if multiple languages are supported in the Data Service.",
           "oneOf": [
@@ -5883,7 +5601,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/LinguisticSystem",
+                    "$ref": "#/$defs/LinguisticSystem",
                     "description": "inline description of LinguisticSystem"
                   },
                   {
@@ -5897,7 +5615,6 @@
           ]
         },
         "license": {
-          "$id": "http://purl.org/dc/terms/license",
           "title": "license",
           "description": "This property refers to the license under which the Data Service is made available.",
           "oneOf": [
@@ -5907,7 +5624,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/LicenseDocument",
+                  "$ref": "#/$defs/LicenseDocument",
                   "description": "inline description of LicenseDocument"
                 },
                 {
@@ -5920,7 +5637,6 @@
           ]
         },
         "modified": {
-          "$id": "http://purl.org/dc/terms/modified",
           "title": "update/modification date",
           "description": "This property contains the most recent date on which the Data Service was changed or modified.",
           "oneOf": [
@@ -5949,12 +5665,11 @@
           ]
         },
         "publisher": {
-          "$id": "http://purl.org/dc/terms/publisher",
           "title": "publisher",
           "description": "This property refers to an entity (organization) responsible for making the Data Service available.",
           "oneOf": [
             {
-              "$ref": "#/definitions/Agent",
+              "$ref": "#/$defs/Agent",
               "description": "inline description of Agent"
             },
             {
@@ -5965,7 +5680,6 @@
           ]
         },
         "rights": {
-          "$id": "http://purl.org/dc/terms/rights",
           "title": "rights",
           "description": "A statement that concerns all rights for the Data Service not addressed with dcterms:license or dcterms:accessRights, such as copyright statements.",
           "oneOf": [
@@ -5977,7 +5691,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/RightsStatement",
+                    "$ref": "#/$defs/RightsStatement",
                     "description": "inline description of RightsStatement"
                   },
                   {
@@ -5991,7 +5705,6 @@
           ]
         },
         "rightsHolder": {
-          "$id": "http://purl.org/dc/terms/rightsHolder",
           "title": "rights holder",
           "description": "This property refers to an Agent (organization) holding rights on the Data Service.",
           "oneOf": [
@@ -6003,7 +5716,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Organization",
+                    "$ref": "#/$defs/Organization",
                     "description": "inline description of Organization"
                   },
                   {
@@ -6017,7 +5730,6 @@
           ]
         },
         "spatial": {
-          "$id": "http://purl.org/dc/terms/spatial",
           "title": "spatial/geographic coverage",
           "description": "This property refers to a geographic region that is covered by the Data Service.",
           "oneOf": [
@@ -6029,7 +5741,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Location",
+                    "$ref": "#/$defs/Location",
                     "description": "inline description of Location"
                   },
                   {
@@ -6043,7 +5755,6 @@
           ]
         },
         "temporal": {
-          "$id": "http://purl.org/dc/terms/temporal",
           "title": "temporal coverage",
           "description": "A temporal period that the DataService covers.",
           "oneOf": [
@@ -6055,7 +5766,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/PeriodOfTime",
+                    "$ref": "#/$defs/PeriodOfTime",
                     "description": "inline description of PeriodOfTime"
                   },
                   {
@@ -6069,13 +5780,11 @@
           ]
         },
         "title": {
-          "$id": "http://purl.org/dc/terms/title",
           "title": "title",
           "description": "The title of the data service in the indicated language",
           "type": "string"
         },
         "titleMap": {
-          "$id": "http://purl.org/dc/terms/title_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -6083,7 +5792,6 @@
           ]
         },
         "category": {
-          "$id": "http://purl.org/dc/terms/type",
           "title": "category",
           "description": "Category of the data service",
           "oneOf": [
@@ -6093,7 +5801,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -6106,7 +5814,6 @@
           ]
         },
         "hasQualityMeasurement": {
-          "$id": "http://www.w3.org/ns/dqv#hasQualityMeasurement",
           "title": "quality measurement",
           "description": "Refers to the performed quality measurements.",
           "oneOf": [
@@ -6118,7 +5825,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/QualityMeasurement",
+                    "$ref": "#/$defs/QualityMeasurement",
                     "description": "inline description of QualityMeasurement"
                   },
                   {
@@ -6132,7 +5839,6 @@
           ]
         },
         "hasPolicy": {
-          "$id": "http://www.w3.org/ns/odrl/2/hasPolicy",
           "title": "has policy",
           "description": "An ODRL conformant policy expressing the rights associated with the Data Service.",
           "oneOf": [
@@ -6144,7 +5850,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Policy",
+                    "$ref": "#/$defs/Policy",
                     "description": "inline description of Policy"
                   },
                   {
@@ -6158,7 +5864,6 @@
           ]
         },
         "qualifiedAttribution": {
-          "$id": "http://www.w3.org/ns/prov#qualifiedAttribution",
           "title": "qualified attribution",
           "description": "This property refers to a link to an Agent having some form of responsibility for the DataService.",
           "oneOf": [
@@ -6170,7 +5875,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Attribution",
+                    "$ref": "#/$defs/Attribution",
                     "description": "inline description of Attribution"
                   },
                   {
@@ -6184,7 +5889,6 @@
           ]
         },
         "wasUsedBy": {
-          "$id": "http://www.w3.org/ns/prov#wasUsedBy",
           "title": "was used by",
           "description": "This property refers to an Activity that used the Data Service.",
           "oneOf": [
@@ -6196,7 +5900,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Activity",
+                    "$ref": "#/$defs/Activity",
                     "description": "inline description of Activity"
                   },
                   {
@@ -6231,12 +5935,11 @@
           "default": "Metric"
         },
         "expectedDataType": {
-          "$id": "http://www.w3.org/ns/dqv#expectedDataType",
           "title": "expected datatype",
           "description": "Represents the expected data type for the metric's observed value (e.g., xsd:boolean, xsd:double etc...)",
           "oneOf": [
             {
-              "$ref": "#/definitions/anySimpleType",
+              "$ref": "#/$defs/anySimpleType",
               "description": "inline description of anySimpleType"
             },
             {
@@ -6247,12 +5950,11 @@
           ]
         },
         "inDimension": {
-          "$id": "http://www.w3.org/ns/dqv#inDimension",
           "title": "in dimension",
           "description": "Represents the dimensions a quality metric, certificate and annotation allow a measurement of.",
           "oneOf": [
             {
-              "$ref": "#/definitions/Dimension",
+              "$ref": "#/$defs/Dimension",
               "description": "inline description of Dimension"
             },
             {
@@ -6282,19 +5984,16 @@
           "default": "CUIRestriction"
         },
         "cuiBannerMarking": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#cuiBannerMarking",
           "title": "CUI banner marking",
           "description": "CUI (Controlled Unclassified Information) banner marking is required for any unclassified information that is deemed sensitive and requires protection.",
           "type": "string"
         },
         "designationIndicator": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#designationIndicator",
           "title": "CUI designation indicator",
           "description": "Designation Indicator shows which agency made the document CUI",
           "type": "string"
         },
         "requiredIndicatorPerAuthority": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#requiredIndicatorPerAuthority",
           "title": "required indicator per authority",
           "description": "free text (e.g., text of the category description or the distribution statement)",
           "oneOf": [
@@ -6329,25 +6028,21 @@
           "default": "GeographicBoundingBox"
         },
         "eastBoundingLongitude": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#eastBoundingLongitude",
           "title": "east bounding longitude",
           "description": "East bound longitude in decimal degrees",
           "type": "string"
         },
         "northBoundingLatitude": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#northBoundingLatitude",
           "title": "north bounding latitude",
           "description": "North bound latitude in decimal degrees",
           "type": "string"
         },
         "southBoundingLatitude": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#southBoundingLatitude",
           "title": "south bouding latitude",
           "description": "South bound latitude in decimal degrees",
           "type": "string"
         },
         "westBoundingLongitude": {
-          "$id": "http://data.resources.gov/ontology/dcat-us#westBoundingLongitude",
           "title": "west bounding longitude",
           "description": "West bound longitude in decimal degrees",
           "type": "string"
@@ -6374,12 +6069,11 @@
           "default": "Attribution"
         },
         "hadRole": {
-          "$id": "http://www.w3.org/ns/dcat#hadRole",
           "title": "role",
           "description": "The function of an entity or agent with respect to another entity or resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/Role",
+              "$ref": "#/$defs/Role",
               "description": "inline description of Role"
             },
             {
@@ -6390,12 +6084,11 @@
           ]
         },
         "agent": {
-          "$id": "http://www.w3.org/ns/prov#agent",
           "title": "agent",
           "description": "The agent property references an Agent that plays a role in the resource",
           "oneOf": [
             {
-              "$ref": "#/definitions/Agent",
+              "$ref": "#/$defs/Agent",
               "description": "inline description of Agent"
             },
             {
@@ -6425,7 +6118,6 @@
           "default": "Activity"
         },
         "category": {
-          "$id": "http://purl.org/dc/terms/type",
           "title": "category",
           "description": "The category of the Activity ",
           "oneOf": [
@@ -6435,7 +6127,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -6448,7 +6140,6 @@
           ]
         },
         "label": {
-          "$id": "http://www.w3.org/2000/01/rdf-schema#label",
           "title": "label",
           "description": "This property is used to give a human-readable label for the activity.",
           "oneOf": [
@@ -6461,7 +6152,6 @@
           ]
         },
         "labelMap": {
-          "$id": "http://www.w3.org/2000/01/rdf-schema#label_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -6485,7 +6175,6 @@
           "default": "Document"
         },
         "creators": {
-          "$id": "http://purl.org/dc/elements/1.1/creator",
           "title": "author(s) as literal",
           "description": "list of authors as a literal",
           "oneOf": [
@@ -6501,7 +6190,6 @@
           ]
         },
         "publishers": {
-          "$id": "http://purl.org/dc/elements/1.1/publisher",
           "title": "publisher(s) as literal",
           "description": "list of publishers as a literal",
           "oneOf": [
@@ -6514,7 +6202,6 @@
           ]
         },
         "mediaType": {
-          "$id": "http://www.w3.org/ns/dcat#mediaType",
           "title": "media type",
           "description": "The file format of the Document.",
           "oneOf": [
@@ -6526,7 +6213,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/MediaType",
+                    "$ref": "#/$defs/MediaType",
                     "description": "inline description of MediaType"
                   },
                   {
@@ -6540,7 +6227,6 @@
           ]
         },
         "abstract": {
-          "$id": "http://purl.org/dc/terms/abstract",
           "title": "abstract",
           "description": "Text abstract of the document",
           "oneOf": [
@@ -6553,7 +6239,6 @@
           ]
         },
         "abstractMap": {
-          "$id": "http://purl.org/dc/terms/abstract_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -6561,7 +6246,6 @@
           ]
         },
         "bibliographicCitation": {
-          "$id": "http://purl.org/dc/terms/bibliographicCitation",
           "title": "bibliographic citation",
           "description": "Bibliographic citation as text",
           "oneOf": [
@@ -6574,7 +6258,6 @@
           ]
         },
         "conformsTo": {
-          "$id": "http://purl.org/dc/terms/conformsTo",
           "title": "conforms to standard",
           "description": "This property refers to an standard which the described Document conforms.",
           "oneOf": [
@@ -6586,7 +6269,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Standard",
+                    "$ref": "#/$defs/Standard",
                     "description": "inline description of Standard"
                   },
                   {
@@ -6600,7 +6283,6 @@
           ]
         },
         "creator": {
-          "$id": "http://purl.org/dc/terms/creator",
           "title": "corporate author",
           "description": "The organization responsible for creating the resource.",
           "oneOf": [
@@ -6612,7 +6294,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Organization",
+                    "$ref": "#/$defs/Organization",
                     "description": "inline description of Organization"
                   },
                   {
@@ -6626,7 +6308,6 @@
           ]
         },
         "description": {
-          "$id": "http://purl.org/dc/terms/description",
           "title": "description",
           "description": "A free-text account of the Document",
           "oneOf": [
@@ -6639,7 +6320,6 @@
           ]
         },
         "descriptionMap": {
-          "$id": "http://purl.org/dc/terms/description_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -6647,7 +6327,6 @@
           ]
         },
         "identifier": {
-          "$id": "http://purl.org/dc/terms/identifier",
           "title": "identifier",
           "description": "This property contains a unique identifier for the Document (e.g. DOI, ISBN)",
           "oneOf": [
@@ -6663,7 +6342,6 @@
           ]
         },
         "issued": {
-          "$id": "http://purl.org/dc/terms/issued",
           "title": "publication date",
           "description": "publication date of the document",
           "oneOf": [
@@ -6692,7 +6370,6 @@
           ]
         },
         "publisher": {
-          "$id": "http://purl.org/dc/terms/publisher",
           "title": "publisher",
           "description": "publisher organization of the document",
           "oneOf": [
@@ -6702,7 +6379,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Organization",
+                  "$ref": "#/$defs/Organization",
                   "description": "inline description of Organization"
                 },
                 {
@@ -6715,13 +6392,11 @@
           ]
         },
         "title": {
-          "$id": "http://purl.org/dc/terms/title",
           "title": "title",
           "description": "The title of the document in the indicated language",
           "type": "string"
         },
         "titleMap": {
-          "$id": "http://purl.org/dc/terms/title_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -6729,7 +6404,6 @@
           ]
         },
         "category": {
-          "$id": "http://purl.org/dc/terms/type",
           "title": "category",
           "description": "Category of the document",
           "oneOf": [
@@ -6739,7 +6413,7 @@
             {
               "oneOf": [
                 {
-                  "$ref": "#/definitions/Concept",
+                  "$ref": "#/$defs/Concept",
                   "description": "inline description of Concept"
                 },
                 {
@@ -6770,12 +6444,11 @@
           "default": "Relationship"
         },
         "hadRole": {
-          "$id": "http://www.w3.org/ns/dcat#hadRole",
           "title": "role",
           "description": "The function of an entity or agent with respect to another entity or resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/Role",
+              "$ref": "#/$defs/Role",
               "description": "inline description of Role"
             },
             {
@@ -6786,12 +6459,11 @@
           ]
         },
         "relation": {
-          "$id": "http://purl.org/dc/terms/relation",
           "title": "relation",
           "description": "The resource related to the source resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/Resource",
+              "$ref": "#/$defs/Resource",
               "description": "inline description of Resource"
             },
             {
@@ -6821,7 +6493,6 @@
           "default": "ConceptScheme"
         },
         "version": {
-          "$id": "http://www.w3.org/ns/dcat#version",
           "title": "version info",
           "description": "This property contains a version number or other version designation of the Concept Scheme.",
           "oneOf": [
@@ -6834,7 +6505,6 @@
           ]
         },
         "created": {
-          "$id": "http://purl.org/dc/terms/created",
           "title": "creation date",
           "description": "This property contains the date on which the Concept Scheme has been first created.",
           "oneOf": [
@@ -6863,7 +6533,6 @@
           ]
         },
         "description": {
-          "$id": "http://purl.org/dc/terms/description",
           "title": "description",
           "description": "This property contains a description of the Concept Scheme. ",
           "oneOf": [
@@ -6876,7 +6545,6 @@
           ]
         },
         "descriptionMap": {
-          "$id": "http://purl.org/dc/terms/description_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",
@@ -6884,7 +6552,6 @@
           ]
         },
         "issued": {
-          "$id": "http://purl.org/dc/terms/issued",
           "title": "publication date",
           "description": "This property contains the date of formal issuance (e.g., publication) of the Concept Scheme.",
           "oneOf": [
@@ -6913,7 +6580,6 @@
           ]
         },
         "modified": {
-          "$id": "http://purl.org/dc/terms/modified",
           "title": "update/modification date",
           "description": "This property contains the most recent date at which the Concept Scheme was changed or modified.",
           "oneOf": [
@@ -6942,13 +6608,11 @@
           ]
         },
         "title": {
-          "$id": "http://purl.org/dc/terms/title",
           "title": "title",
           "description": "The title of the concept scheme in the indicated language.",
           "type": "string"
         },
         "titleMap": {
-          "$id": "http://purl.org/dc/terms/title_lang_map",
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
           "type": [
             "null",

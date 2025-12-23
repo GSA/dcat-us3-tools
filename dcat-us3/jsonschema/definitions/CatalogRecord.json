@@ -22,7 +22,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+              "$ref": "#/definitions/Concept",
               "description": "inline description of Concept"
             },
             {
@@ -45,7 +45,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Standard.json",
+              "$ref": "#/definitions/Standard",
               "description": "inline description of Standard"
             },
             {
@@ -118,7 +118,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/LinguisticSystem.json",
+                "$ref": "#/definitions/LinguisticSystem",
                 "description": "inline description of LinguisticSystem"
               },
               {
@@ -164,7 +164,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json",
+              "$ref": "#/definitions/Resource",
               "description": "inline description of Resource"
             },
             {
@@ -203,7 +203,7 @@
       "description": "A link to the Dataset, Data service or Catalog described in the Catalog Record.",
       "oneOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json",
+          "$ref": "#/definitions/Resource",
           "description": "inline description of Resource"
         },
         {

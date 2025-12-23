@@ -17,7 +17,7 @@
       "description": "Indicates the metric being observed.",
       "oneOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Metric.json",
+          "$ref": "#/definitions/Metric",
           "description": "inline description of Metric"
         },
         {
@@ -44,7 +44,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json",
+              "$ref": "#/definitions/Resource",
               "description": "inline description of Resource"
             },
             {

@@ -53,7 +53,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/MediaType.json",
+                "$ref": "#/definitions/MediaType",
                 "description": "inline description of MediaType"
               },
               {
@@ -113,7 +113,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Standard.json",
+                "$ref": "#/definitions/Standard",
                 "description": "inline description of Standard"
               },
               {
@@ -139,7 +139,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Organization.json",
+                "$ref": "#/definitions/Organization",
                 "description": "inline description of Organization"
               },
               {
@@ -229,7 +229,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Organization.json",
+              "$ref": "#/definitions/Organization",
               "description": "inline description of Organization"
             },
             {
@@ -266,7 +266,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+              "$ref": "#/definitions/Concept",
               "description": "inline description of Concept"
             },
             {

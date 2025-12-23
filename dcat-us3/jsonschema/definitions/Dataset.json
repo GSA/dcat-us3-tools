@@ -24,7 +24,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Identifier.json",
+                "$ref": "#/definitions/Identifier",
                 "description": "inline description of Identifier"
               },
               {
@@ -50,7 +50,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Distribution.json",
+                "$ref": "#/definitions/Distribution",
                 "description": "inline description of Distribution"
               },
               {
@@ -74,7 +74,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+              "$ref": "#/definitions/Concept",
               "description": "inline description of Concept"
             },
             {
@@ -97,7 +97,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+              "$ref": "#/definitions/Dataset",
               "description": "inline description of Dataset"
             },
             {
@@ -135,7 +135,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Kind.json",
+                "$ref": "#/definitions/Kind",
                 "description": "inline description of Kind"
               },
               {
@@ -161,7 +161,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Distribution.json",
+                "$ref": "#/definitions/Distribution",
                 "description": "inline description of Distribution"
               },
               {
@@ -185,7 +185,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+              "$ref": "#/definitions/Dataset",
               "description": "inline description of Dataset"
             },
             {
@@ -208,7 +208,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+              "$ref": "#/definitions/Dataset",
               "description": "inline description of Dataset"
             },
             {
@@ -233,7 +233,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+                "$ref": "#/definitions/Dataset",
                 "description": "inline description of Dataset"
               },
               {
@@ -259,7 +259,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/DatasetSeries.json",
+                "$ref": "#/definitions/DatasetSeries",
                 "description": "inline description of DatasetSeries"
               },
               {
@@ -304,7 +304,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Document.json",
+              "$ref": "#/definitions/Document",
               "description": "inline description of Document"
             },
             {
@@ -327,7 +327,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+              "$ref": "#/definitions/Dataset",
               "description": "inline description of Dataset"
             },
             {
@@ -352,7 +352,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Relationship.json",
+                "$ref": "#/definitions/Relationship",
                 "description": "inline description of Relationship"
               },
               {
@@ -404,7 +404,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+                "$ref": "#/definitions/Concept",
                 "description": "inline description of Concept"
               },
               {
@@ -441,7 +441,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Distribution.json",
+              "$ref": "#/definitions/Distribution",
               "description": "inline description of Distribution"
             },
             {
@@ -466,7 +466,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/GeographicBoundingBox.json",
+                "$ref": "#/definitions/GeographicBoundingBox",
                 "description": "inline description of GeographicBoundingBox"
               },
               {
@@ -490,7 +490,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/LiabilityStatement.json",
+              "$ref": "#/definitions/LiabilityStatement",
               "description": "inline description of LiabilityStatement"
             },
             {
@@ -515,7 +515,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Distribution.json",
+                "$ref": "#/definitions/Distribution",
                 "description": "inline description of Distribution"
               },
               {
@@ -560,7 +560,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/RightsStatement.json",
+              "$ref": "#/definitions/RightsStatement",
               "description": "inline description of RightsStatement"
             },
             {
@@ -583,7 +583,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Frequency.json",
+              "$ref": "#/definitions/Frequency",
               "description": "inline description of Frequency"
             },
             {
@@ -608,7 +608,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Standard.json",
+                "$ref": "#/definitions/Standard",
                 "description": "inline description of Standard"
               },
               {
@@ -634,7 +634,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Agent.json",
+                "$ref": "#/definitions/Agent",
                 "description": "inline description of Agent"
               },
               {
@@ -687,7 +687,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Agent.json",
+              "$ref": "#/definitions/Agent",
               "description": "inline description of Agent"
             },
             {
@@ -726,7 +726,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+                "$ref": "#/definitions/Dataset",
                 "description": "inline description of Dataset"
               },
               {
@@ -768,7 +768,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json",
+                "$ref": "#/definitions/Resource",
                 "description": "inline description of Resource"
               },
               {
@@ -823,7 +823,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/LinguisticSystem.json",
+                "$ref": "#/definitions/LinguisticSystem",
                 "description": "inline description of LinguisticSystem"
               },
               {
@@ -878,7 +878,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/ProvenanceStatement.json",
+                "$ref": "#/definitions/ProvenanceStatement",
                 "description": "inline description of ProvenanceStatement"
               },
               {
@@ -897,7 +897,7 @@
       "description": "This property refers to an organisation responsible for making the Dataset available.",
       "oneOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Organization.json",
+          "$ref": "#/definitions/Organization",
           "description": "inline description of Organization"
         },
         {
@@ -920,7 +920,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json",
+                "$ref": "#/definitions/Resource",
                 "description": "inline description of Resource"
               },
               {
@@ -946,7 +946,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+                "$ref": "#/definitions/Dataset",
                 "description": "inline description of Dataset"
               },
               {
@@ -970,7 +970,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/RightsStatement.json",
+              "$ref": "#/definitions/RightsStatement",
               "description": "inline description of RightsStatement"
             },
             {
@@ -995,7 +995,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Organization.json",
+                "$ref": "#/definitions/Organization",
                 "description": "inline description of Organization"
               },
               {
@@ -1021,7 +1021,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Resource.json",
+                "$ref": "#/definitions/Resource",
                 "description": "inline description of Resource"
               },
               {
@@ -1047,7 +1047,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Location.json",
+                "$ref": "#/definitions/Location",
                 "description": "inline description of Location"
               },
               {
@@ -1073,7 +1073,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+                "$ref": "#/definitions/Concept",
                 "description": "inline description of Concept"
               },
               {
@@ -1099,7 +1099,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/PeriodOfTime.json",
+                "$ref": "#/definitions/PeriodOfTime",
                 "description": "inline description of PeriodOfTime"
               },
               {
@@ -1139,7 +1139,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Concept.json",
+                "$ref": "#/definitions/Concept",
                 "description": "inline description of Concept"
               },
               {
@@ -1165,7 +1165,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/QualityMeasurement.json",
+                "$ref": "#/definitions/QualityMeasurement",
                 "description": "inline description of QualityMeasurement"
               },
               {
@@ -1191,7 +1191,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Document.json",
+                "$ref": "#/definitions/Document",
                 "description": "inline description of Document"
               },
               {
@@ -1217,7 +1217,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Attribution.json",
+                "$ref": "#/definitions/Attribution",
                 "description": "inline description of Attribution"
               },
               {
@@ -1243,7 +1243,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Agent.json",
+                "$ref": "#/definitions/Agent",
                 "description": "inline description of Agent"
               },
               {
@@ -1269,7 +1269,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Activity.json",
+                "$ref": "#/definitions/Activity",
                 "description": "inline description of Activity"
               },
               {
@@ -1295,7 +1295,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Activity.json",
+                "$ref": "#/definitions/Activity",
                 "description": "inline description of Activity"
               },
               {
@@ -1321,7 +1321,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/ImageObject.json",
+                "$ref": "#/definitions/ImageObject",
                 "description": "inline description of ImageObject"
               },
               {

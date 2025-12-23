@@ -24,7 +24,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Kind.json",
+                "$ref": "#/definitions/Kind",
                 "description": "inline description of Kind"
               },
               {
@@ -48,7 +48,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+              "$ref": "#/definitions/Dataset",
               "description": "inline description of Dataset"
             },
             {
@@ -71,7 +71,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+              "$ref": "#/definitions/Dataset",
               "description": "inline description of Dataset"
             },
             {
@@ -96,7 +96,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Dataset.json",
+                "$ref": "#/definitions/Dataset",
                 "description": "inline description of Dataset"
               },
               {
@@ -120,7 +120,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Frequency.json",
+              "$ref": "#/definitions/Frequency",
               "description": "inline description of Frequency"
             },
             {
@@ -215,7 +215,7 @@
         {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Agent.json",
+              "$ref": "#/definitions/Agent",
               "description": "inline description of Agent"
             },
             {
@@ -240,7 +240,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/Location.json",
+                "$ref": "#/definitions/Location",
                 "description": "inline description of Location"
               },
               {
@@ -266,7 +266,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/definitions/PeriodOfTime.json",
+                "$ref": "#/definitions/PeriodOfTime",
                 "description": "inline description of PeriodOfTime"
               },
               {

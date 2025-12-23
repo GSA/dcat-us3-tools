@@ -19,6 +19,38 @@ def load_json_file(filepath: Path) -> Dict[str, Any]:
         print(f"ERROR: Failed to load {filepath}: {e}")
         return {}
 
+def clean_schema_object(obj: Any) -> Any:
+    """
+    Recursively clean a schema object:
+    - Remove "$id" keys
+    - Rename "definitions" to "$defs"
+    - Update "$ref" paths from "#/definitions/" to "#/$defs/"
+    """
+    if isinstance(obj, dict):
+        cleaned = {}
+        for key, value in obj.items():
+            # Skip $id keys (remove them)
+            if key == "$id":
+                continue
+            
+            # Rename "definitions" to "$defs"
+            new_key = "$defs" if key == "definitions" else key
+            
+            # Update $ref paths
+            if key == "$ref" and isinstance(value, str):
+                cleaned[new_key] = value.replace("#/definitions/", "#/$defs/")
+            else:
+                # Recursively clean nested objects
+                cleaned[new_key] = clean_schema_object(value)
+        
+        return cleaned
+    elif isinstance(obj, list):
+        # Recursively clean array items
+        return [clean_schema_object(item) for item in obj]
+    else:
+        # Return primitives as-is
+        return obj
+
 def load_all_definitions(definitions_dir: Path) -> Dict[str, Dict[str, Any]]:
     """Load all definition files from the definitions directory."""
     definitions = {}
@@ -31,7 +63,9 @@ def load_all_definitions(definitions_dir: Path) -> Dict[str, Dict[str, Any]]:
         definition_name = json_file.stem
         definition_data = load_json_file(json_file)
         if definition_data:
-            definitions[definition_name] = definition_data
+            # Clean the definition (remove $id, rename definitions to $defs, update $refs)
+            cleaned_data = clean_schema_object(definition_data)
+            definitions[definition_name] = cleaned_data
             print(f"Loaded definition: {definition_name}")
     
     return definitions
@@ -48,7 +82,7 @@ def create_expanded_schema(definitions: Dict[str, Dict[str, Any]]) -> Dict[str, 
     expanded_schema = catalog_def.copy()
     
     # Add all definitions to the schema
-    expanded_schema["definitions"] = definitions
+    expanded_schema["$defs"] = definitions
     
     return expanded_schema
 
@@ -59,8 +93,8 @@ def main():
     
     # Set up paths
     script_dir = Path(__file__).parent
-    definitions_dir = script_dir / "dcat-us3" / "jsonschema" / "definitions"
-    output_path = script_dir / "dcat-us3" / "dcat-us3.0-expanded-schema.json"
+    definitions_dir = script_dir / "definitions"
+    output_path = script_dir / "dcat-us3.0-expanded-schema.json"
     
     # Load all definitions
     print(f"Loading definitions from: {definitions_dir}")
