@@ -766,17 +766,9 @@
         {
           "type": "array",
           "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/Resource",
-                "description": "inline description of Resource"
-              },
-              {
-                "type": "string",
-                "description": "reference iri of Resource",
-                "format": "iri"
-              }
-            ]
+            "type": "string",
+            "description": "reference iri of Resource",
+            "format": "iri"
           }
         }
       ]
@@ -892,17 +884,9 @@
         {
           "type": "array",
           "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/Resource",
-                "description": "inline description of Resource"
-              },
-              {
-                "type": "string",
-                "description": "reference iri of Resource",
-                "format": "iri"
-              }
-            ]
+            "type": "string",
+            "description": "reference iri of Resource",
+            "format": "iri"
           }
         }
       ]
@@ -993,17 +977,9 @@
         {
           "type": "array",
           "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/Resource",
-                "description": "inline description of Resource"
-              },
-              {
-                "type": "string",
-                "description": "reference iri of Resource",
-                "format": "iri"
-              }
-            ]
+            "type": "string",
+            "description": "reference iri of Resource",
+            "format": "iri"
           }
         }
       ]
