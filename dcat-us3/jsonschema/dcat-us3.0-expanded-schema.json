@@ -2788,17 +2788,9 @@
             {
               "type": "array",
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/ImageObject",
-                    "description": "inline description of ImageObject"
-                  },
-                  {
-                    "type": "string",
-                    "description": "reference iri of ImageObject",
-                    "format": "iri"
-                  }
-                ]
+                "type": "string",
+                "description": "reference iri of ImageObject",
+                "format": "iri"
               }
             }
           ]
@@ -4711,17 +4703,9 @@
             {
               "type": "array",
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/ImageObject",
-                    "description": "inline description of ImageObject"
-                  },
-                  {
-                    "type": "string",
-                    "description": "reference iri of ImageObject",
-                    "format": "iri"
-                  }
-                ]
+                "type": "string",
+                "description": "reference iri of ImageObject",
+                "format": "iri"
               }
             }
           ]
@@ -5566,31 +5550,6 @@
                   {
                     "type": "string",
                     "description": "reference iri of QualityMeasurement",
-                    "format": "iri"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        "hasPolicy": {
-          "title": "has policy",
-          "description": "An ODRL conformant policy expressing the rights associated with the Data Service.",
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": "array",
-              "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/Policy",
-                    "description": "inline description of Policy"
-                  },
-                  {
-                    "type": "string",
-                    "description": "reference iri of Policy",
                     "format": "iri"
                   }
                 ]
