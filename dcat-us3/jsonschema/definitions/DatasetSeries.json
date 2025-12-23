@@ -118,17 +118,7 @@
           "type": "null"
         },
         {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Frequency",
-              "description": "inline description of Frequency"
-            },
-            {
-              "type": "string",
-              "description": "reference iri of Frequency",
-              "format": "iri"
-            }
-          ]
+          "type": "string"
         }
       ]
     },

@@ -664,17 +664,7 @@
               "type": "null"
             },
             {
-              "oneOf": [
-                {
-                  "$ref": "#/$defs/Resource",
-                  "description": "inline description of Resource"
-                },
-                {
-                  "type": "string",
-                  "description": "reference iri of Resource",
-                  "format": "iri"
-                }
-              ]
+              "type": "string"
             }
           ]
         }
@@ -861,17 +851,9 @@
               "type": "null"
             },
             {
-              "oneOf": [
-                {
-                  "$ref": "#/$defs/Resource",
-                  "description": "inline description of Resource"
-                },
-                {
-                  "type": "string",
-                  "description": "reference iri of Resource",
-                  "format": "iri"
-                }
-              ]
+              "type": "string",
+              "description": "reference iri of Resource",
+              "format": "iri"
             }
           ]
         },
@@ -897,17 +879,8 @@
         "primaryTopic": {
           "title": "primary topic",
           "description": "A link to the Dataset, Data service or Catalog described in the Catalog Record.",
-          "oneOf": [
-            {
-              "$ref": "#/$defs/Resource",
-              "description": "inline description of Resource"
-            },
-            {
-              "type": "string",
-              "description": "reference iri of Resource",
-              "format": "iri"
-            }
-          ]
+          "type": "string",
+          "format": "iri"
         }
       },
       "required": [
@@ -1301,17 +1274,7 @@
               "type": "null"
             },
             {
-              "oneOf": [
-                {
-                  "$ref": "#/$defs/Frequency",
-                  "description": "inline description of Frequency"
-                },
-                {
-                  "type": "string",
-                  "description": "reference iri of Frequency",
-                  "format": "iri"
-                }
-              ]
+              "type": "string"
             }
           ]
         },
@@ -2178,17 +2141,7 @@
               "type": "null"
             },
             {
-              "oneOf": [
-                {
-                  "$ref": "#/$defs/Frequency",
-                  "description": "inline description of Frequency"
-                },
-                {
-                  "type": "string",
-                  "description": "reference iri of Frequency",
-                  "format": "iri"
-                }
-              ]
+              "type": "string"
             }
           ]
         },
@@ -2354,17 +2307,9 @@
             {
               "type": "array",
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/Resource",
-                    "description": "inline description of Resource"
-                  },
-                  {
-                    "type": "string",
-                    "description": "reference iri of Resource",
-                    "format": "iri"
-                  }
-                ]
+                "type": "string",
+                "description": "reference iri of Resource",
+                "format": "iri"
               }
             }
           ]
@@ -2475,17 +2420,9 @@
             {
               "type": "array",
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/Resource",
-                    "description": "inline description of Resource"
-                  },
-                  {
-                    "type": "string",
-                    "description": "reference iri of Resource",
-                    "format": "iri"
-                  }
-                ]
+                "type": "string",
+                "description": "reference iri of Resource",
+                "format": "iri"
               }
             }
           ]
@@ -2572,17 +2509,9 @@
             {
               "type": "array",
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/Resource",
-                    "description": "inline description of Resource"
-                  },
-                  {
-                    "type": "string",
-                    "description": "reference iri of Resource",
-                    "format": "iri"
-                  }
-                ]
+                "type": "string",
+                "description": "reference iri of Resource",
+                "format": "iri"
               }
             }
           ]
@@ -3028,17 +2957,7 @@
               "type": "null"
             },
             {
-              "oneOf": [
-                {
-                  "$ref": "#/$defs/Resource",
-                  "description": "inline description of Resource"
-                },
-                {
-                  "type": "string",
-                  "description": "reference iri of Resource",
-                  "format": "iri"
-                }
-              ]
+              "type": "string"
             }
           ]
         },
@@ -4272,17 +4191,9 @@
               "type": "null"
             },
             {
-              "oneOf": [
-                {
-                  "$ref": "#/$defs/Resource",
-                  "description": "inline description of Resource"
-                },
-                {
-                  "type": "string",
-                  "description": "reference iri of Resource",
-                  "format": "iri"
-                }
-              ]
+              "type": "string",
+              "description": "reference iri of Resource",
+              "format": "iri"
             }
           ]
         },
@@ -4328,17 +4239,9 @@
               "type": "null"
             },
             {
-              "oneOf": [
-                {
-                  "$ref": "#/$defs/Resource",
-                  "description": "inline description of Resource"
-                },
-                {
-                  "type": "string",
-                  "description": "reference iri of Resource",
-                  "format": "iri"
-                }
-              ]
+              "type": "string",
+              "description": "reference iri of Resource",
+              "format": "iri"
             }
           ]
         },
@@ -5166,12 +5069,12 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/$defs/Resource",
-                    "description": "inline description of Resource"
+                    "$ref": "#/$defs/Dataset",
+                    "description": "inline description of a Dataset"
                   },
                   {
                     "type": "string",
-                    "description": "reference iri of Resource",
+                    "description": "reference iri of Dataset",
                     "format": "iri"
                   }
                 ]
@@ -5184,17 +5087,8 @@
           "description": "The root location or primary endpoint of the service (a Web-resolvable IRI)",
           "type": "array",
           "items": {
-            "oneOf": [
-              {
-                "$ref": "#/$defs/Resource",
-                "description": "inline description of Resource"
-              },
-              {
-                "type": "string",
-                "description": "reference iri of Resource",
-                "format": "iri"
-              }
-            ]
+            "type": "string",
+            "format": "iri"
           }
         },
         "keyword": {
@@ -6302,17 +6196,8 @@
         "relation": {
           "title": "relation",
           "description": "The resource related to the source resource.",
-          "oneOf": [
-            {
-              "$ref": "#/$defs/Resource",
-              "description": "inline description of Resource"
-            },
-            {
-              "type": "string",
-              "description": "reference iri of Resource",
-              "format": "iri"
-            }
-          ]
+          "type": "string",
+          "format": "iri"
         }
       },
       "required": [
