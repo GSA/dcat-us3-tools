@@ -74,12 +74,16 @@ def create_expanded_schema(definitions: Dict[str, Dict[str, Any]]) -> Dict[str, 
     """Create the expanded schema with Catalog as root and all definitions included."""
     
     # Get the Catalog definition as the base
-    catalog_def = definitions.get("Catalog", {})
-    if not catalog_def:
-        raise ValueError("Catalog.json not found in definitions directory")
+    # catalog_def = definitions.get("Catalog", {})
+    # if not catalog_def:
+    #     raise ValueError("Catalog.json not found in definitions directory")
     
     # Use Catalog as the root schema structure
-    expanded_schema = catalog_def.copy()
+    expanded_schema = {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "DCAT-US 3.0 Expanded Schema",
+        "$ref": "#/$defs/Catalog"
+    }
     
     # Add all definitions to the schema
     expanded_schema["$defs"] = definitions
