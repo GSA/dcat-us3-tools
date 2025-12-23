@@ -105,32 +105,6 @@
         }
       ]
     },
-    "language": {
-      "$id": "http://purl.org/dc/terms/language",
-      "title": "language",
-      "description": "A language used in the textual metadata describing titles, descriptions, etc. of the Catalog Record.",
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/LinguisticSystem",
-                "description": "inline description of LinguisticSystem"
-              },
-              {
-                "type": "string",
-                "description": "reference iri of LinguisticSystem",
-                "format": "iri"
-              }
-            ]
-          }
-        }
-      ]
-    },
     "modified": {
       "$id": "http://purl.org/dc/terms/modified",
       "title": "update/modification date",

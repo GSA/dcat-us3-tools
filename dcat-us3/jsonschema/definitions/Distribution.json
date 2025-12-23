@@ -512,32 +512,6 @@
         }
       ]
     },
-    "language": {
-      "$id": "http://purl.org/dc/terms/language",
-      "title": "language",
-      "description": "A language used in the Distribution.",
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/LinguisticSystem",
-                "description": "inline description of LinguisticSystem"
-              },
-              {
-                "type": "string",
-                "description": "reference iri of LinguisticSystem",
-                "format": "iri"
-              }
-            ]
-          }
-        }
-      ]
-    },
     "license": {
       "$id": "http://purl.org/dc/terms/license",
       "title": "license",
