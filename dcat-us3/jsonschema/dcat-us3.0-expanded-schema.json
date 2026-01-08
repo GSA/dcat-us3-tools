@@ -3250,8 +3250,7 @@
         }
       },
       "required": [
-        "name",
-        "prefLabel"
+        "name"
       ]
     },
     "LicenseDocument": {
