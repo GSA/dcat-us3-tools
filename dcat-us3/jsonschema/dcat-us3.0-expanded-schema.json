@@ -3121,10 +3121,7 @@
         }
       },
       "required": [
-        "dataset",
-        "description",
-        "publisher",
-        "title"
+        "dataset"
       ]
     },
     "LiabilityStatement": {
