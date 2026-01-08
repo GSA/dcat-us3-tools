@@ -8,8 +8,7 @@
   "publisher": {
     "@type": "org:Organization",
     "@id": "https://www.usa.gov/",
-    "foaf:name": "U.S. Government",
-    "skos:prefLabel": "U.S. Government"
+    "name": "U.S. Government"
   },
   "title": "Example Catalog",
   "dataset": [
@@ -26,10 +25,7 @@
           "accessURL": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm"
         }
       ],
-      "modified": {
-        "@type": "xsd:date",
-        "@value": "2021-04-26"
-      },
+      "modified": "2021-04-26",
       "programCode": [
         "000:000"
       ],
@@ -50,7 +46,10 @@
         "cot",
         "open interest"
       ],
-      "spatial": "United States"
+      "spatial": {
+        "@type": "Location",
+        "prefLabel": "United States"
+      }
     },
     {
       "@type": "dcat:Dataset",
@@ -75,10 +74,7 @@
         "bpr",
         "banking"
       ],
-      "modified": {
-        "@type": "xsd:date",
-        "@value": "2021-04-26"
-      },
+      "modified": "2021-04-26",
       "programCode": [
         "000:000"
       ],
@@ -111,10 +107,7 @@
         "cotton on call",
         "cotton on-call"
       ],
-      "modified": {
-        "@type": "xsd:date",
-        "@value": "2021-04-26"
-      },
+      "modified": "2021-04-26",
       "programCode": [
         "000:000"
       ],
@@ -157,10 +150,7 @@
         "prefLabel": "U.S. Commodity Futures Trading Commission"
       },
       "title": "Financial Data for FCMS",
-      "modified": {
-        "@type": "xsd:date",
-        "@value": "2021-04-26"
-      },
+      "modified": "2021-04-26",
       "programCode": [
         "000:000"
       ]
@@ -188,10 +178,7 @@
           "accessURL": "https://www.cftc.gov/MarketReports/NetPositionChangesData/index.htm"
         }
       ],
-      "modified": {
-        "@type": "xsd:date",
-        "@value": "2021-04-26"
-      },
+      "modified": "2021-04-26",
       "programCode": [
         "000:000"
       ],
@@ -225,10 +212,7 @@
         "swaps report",
         "swaps market"
       ],
-      "modified": {
-        "@type": "xsd:date",
-        "@value": "2021-04-26"
-      },
+      "modified": "2021-04-26",
       "programCode": [
         "000:000"
       ],
@@ -266,10 +250,7 @@
         "margin",
         "exchange"
       ],
-      "modified": {
-        "@type": "xsd:date",
-        "@value": "2021-04-26"
-      },
+      "modified": "2021-04-26",
       "programCode": [
         "000:000"
       ]

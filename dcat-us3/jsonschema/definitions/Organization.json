@@ -96,7 +96,6 @@
     }
   },
   "required": [
-    "name",
-    "prefLabel"
+    "name"
   ]
 }
