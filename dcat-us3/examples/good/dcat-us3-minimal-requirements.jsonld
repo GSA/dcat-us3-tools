@@ -1,0 +1,16 @@
+{
+  "description": "A sample data catalog demonstrating DCAT-US 3.0 compliance",
+  "publisher": {
+    "@type": "org:Organization",
+    "@id": "https://www.usa.gov/",
+    "name": "U.S. Government"
+  },
+  "title": "Example Catalog",
+  "dataset": [
+    {
+      "title": "Dataset 1",
+      "description": "This is a dataset",
+      "publisher": "https://example.com/publisher1"
+    }
+  ]
+}

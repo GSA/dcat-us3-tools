@@ -7,7 +7,7 @@
   "publisher": {
     "@type": "foaf:Organization",
     "@id": "https://example.gov/agencies/main",
-    "foaf:name": "Example Government Agency"
+    "name": "Example Government Agency"
   },
   "dataset": [
     {
