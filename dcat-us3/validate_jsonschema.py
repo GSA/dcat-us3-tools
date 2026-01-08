@@ -2,7 +2,7 @@
 """
 DCAT-US 3.0 JSON Schema Validator
 
-This script validates JSON-LD examples against the DCAT-US 3.0 JSON Schema files.
+This script validates JSON-LD examples against the DCAT-US 3.0 JSON Schema file.
 
 Usage:
     python validate_jsonschema.py                       # Validate all files in examples/ directory
@@ -16,92 +16,23 @@ import warnings
 import re
 from pathlib import Path
 from collections import defaultdict
-from urllib.parse import urljoin
-import requests
 import jsonschema_rs
 
-# Base URL for the DCAT-US 3.0 JSON Schema files
-SCHEMA_BASE_URL = "https://raw.githubusercontent.com/GSA/dcat-us3-tools/refs/heads/main/dcat-us3/jsonschema/"
-SCHEMA_ROOT_URL = SCHEMA_BASE_URL + "/definitions/Catalog.json"
-
-# Cache for fetched schemas
-_schema_cache = {}
+# Local path to the DCAT-US 3.0 JSON Schema file
+SCHEMA_FILENAME = "dcat-us3.0-expanded-schema.json"
 
 
-def fetch_schema(url: str) -> dict:
-    """Fetch a JSON schema from a URL with caching."""
-    if url in _schema_cache:
-        return _schema_cache[url]
-    
-    try:
-        response = requests.get(url, timeout=30)
-        response.raise_for_status()
-        schema = response.json()
-        _schema_cache[url] = schema
-        return schema
-    except requests.RequestException as e:
-        raise RuntimeError(f"Failed to fetch schema from {url}: {e}")
-
-
-def resolve_refs_recursively(obj, base_url: str, visited: set = None) -> dict:
+def load_schema(schema_path: Path) -> dict:
     """
-    Recursively resolve all $ref references in a schema by fetching and inlining them.
-    
-    This is necessary because jsonschema-rs may have trouble fetching remote URLs
-    during validation. By resolving all refs upfront using Python's requests library,
-    we ensure the schema is self-contained.
+    Load the DCAT-US 3.0 JSON Schema from the local file.
     
     Args:
-        obj: The schema object to process
-        base_url: The base URL for resolving relative references
-        visited: Set of already-visited URLs to prevent infinite recursion
+        schema_path: Path to the JSON schema file
     
     Returns:
-        The schema with all $ref references resolved and inlined
+        The loaded schema as a dictionary
     """
-    if visited is None:
-        visited = set()
-    
-    if isinstance(obj, dict):
-        # Check if this is a $ref that points to a URL
-        if "$ref" in obj and isinstance(obj["$ref"], str):
-            ref = obj["$ref"]
-            
-            # Only resolve HTTP(S) URLs, not local #/definitions/ refs
-            if ref.startswith("http://") or ref.startswith("https://"):
-                if ref in visited:
-                    # Already resolved this, return a reference to avoid infinite loop
-                    return obj
-                
-                visited.add(ref)
-                
-                try:
-                    # Fetch the referenced schema
-                    referenced_schema = fetch_schema(ref)
-                    # Remove $id to prevent base URI changes
-                    referenced_schema = remove_schema_ids(referenced_schema)
-                    # Recursively resolve any refs in the fetched schema
-                    resolved = resolve_refs_recursively(referenced_schema, ref, visited)
-                    
-                    # Merge any additional properties from the original $ref object
-                    # (like "description") into the resolved schema
-                    other_props = {k: v for k, v in obj.items() if k != "$ref"}
-                    if other_props and isinstance(resolved, dict):
-                        resolved = {**resolved, **other_props}
-                    
-                    return resolved
-                except Exception as e:
-                    print(f"  WARNING: Failed to resolve $ref {ref}: {e}")
-                    return obj
-        
-        # Recursively process all values in the dict
-        return {key: resolve_refs_recursively(value, base_url, visited) for key, value in obj.items()}
-    
-    elif isinstance(obj, list):
-        return [resolve_refs_recursively(item, base_url, visited) for item in obj]
-    
-    else:
-        return obj
+    return load_json_file(schema_path)
 
 
 def load_json_file(filepath):
@@ -112,51 +43,6 @@ def load_json_file(filepath):
     except (json.JSONDecodeError, FileNotFoundError) as e:
         print(f"ERROR: Failed to load {filepath}: {e}")
         return None
-
-
-def remove_schema_ids(obj):
-    """
-    Recursively remove $id properties from a schema object.
-    
-    The $id property changes the base URI for JSON Pointer resolution,
-    which breaks #/definitions/... references in newer jsonschema versions.
-    Removing them allows references to resolve from the root schema.
-    
-    Note: This only removes $id from nested objects, not the root $schema.
-    """
-    if isinstance(obj, dict):
-        result = {}
-        for key, value in obj.items():
-            if key == "$id":
-                continue  # Skip $id properties
-            result[key] = remove_schema_ids(value)
-        return result
-    elif isinstance(obj, list):
-        return [remove_schema_ids(item) for item in obj]
-    else:
-        return obj
-
-
-def build_registry_with_remote_schemas() -> dict:
-    """
-    Fetch the root schema and all referenced definition schemas from GitHub.
-    
-    Returns the root schema with all definitions inlined for jsonschema-rs.
-    This recursively resolves ALL $ref references to remote URLs, ensuring
-    the schema is completely self-contained and jsonschema-rs doesn't need
-    to make any HTTP calls during validation.
-    """
-    print(f"  Fetching root schema from {SCHEMA_ROOT_URL}")
-    root_schema = fetch_schema(SCHEMA_ROOT_URL)
-    
-    # Recursively resolve all $ref references in the entire schema
-    print("  Resolving all remote $ref references...")
-    resolved_schema = resolve_refs_recursively(root_schema, SCHEMA_ROOT_URL)
-    
-    # Remove any remaining $id properties that could break reference resolution
-    resolved_schema = remove_schema_ids(resolved_schema)
-    
-    return resolved_schema
 
 def get_format_from_message(validation_msg: str) -> str:
     """Extract the format/rule from validation error message."""
@@ -196,7 +82,13 @@ def get_field_path_from_error(error) -> str:
     if hasattr(error, 'instance_path'):
         path = error.instance_path
         if path:
-            return path
+            # instance_path is a list of path components, convert to string
+            if isinstance(path, list):
+                if len(path) == 0:
+                    return "$"
+                # Convert list to JSON pointer notation (e.g., /field/nested)
+                return "/" + "/".join(str(component) for component in path)
+            return str(path)
     return "$"
 
 
@@ -345,16 +237,23 @@ def main():
     # Set up paths
     script_dir = Path(__file__).parent
     examples_dir = script_dir / "examples"
+    schema_path = script_dir / "jsonschema" / SCHEMA_FILENAME
     
-    # Load schemas from GitHub
-    print("Loading schemas from GitHub...")
-    try:
-        main_schema = build_registry_with_remote_schemas()
-    except Exception as e:
-        print(f"ERROR: Failed to load schemas: {e}")
+    # Load schema from local file
+    print(f"Loading schema from {schema_path.relative_to(script_dir.parent)}...")
+    if not schema_path.exists():
+        print(f"ERROR: Schema file not found at {schema_path}")
         sys.exit(1)
     
-    print("Schemas loaded successfully.\n")
+    try:
+        main_schema = load_schema(schema_path)
+        if main_schema is None:
+            raise RuntimeError("Failed to parse schema file")
+    except Exception as e:
+        print(f"ERROR: Failed to load schema: {e}")
+        sys.exit(1)
+    
+    print("Schema loaded successfully.\n")
     
     # Check for command-line arguments for single file validation
     if len(sys.argv) == 2:

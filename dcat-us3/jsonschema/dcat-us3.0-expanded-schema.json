@@ -1093,6 +1093,15 @@
               "type": "null"
             },
             {
+              "$ref": "#/$defs/Kind",
+              "description": "inline description of Kind"
+            },
+            {
+              "type": "string",
+              "description": "reference iri of Kind",
+              "format": "iri"
+            },
+            {
               "type": "array",
               "items": {
                 "oneOf": [
@@ -1232,14 +1241,12 @@
         "keyword": {
           "title": "keyword/tag",
           "description": "This property contains a keyword or tag describing the Dataset.",
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": "string"
-            }
-          ]
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
         },
         "keywordMap": {
           "description": "Language map for property title. E.g. {'es': 'spanish words', 'fr': 'french words'}",
@@ -1665,17 +1672,7 @@
         "identifier": {
           "title": "identifier",
           "description": "This property contains the unique identifier for the Dataset, e.g. the URI or other unique identifier in the context of the Catalog.",
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
+          "type": "string"
         },
         "isReferencedBy": {
           "title": "is referenced by",
@@ -1902,6 +1899,15 @@
           "oneOf": [
             {
               "type": "null"
+            },
+            {
+              "$ref": "#/$defs/Location",
+              "description": "inline description of Location"
+            },
+            {
+              "type": "string",
+              "description": "reference iri of Location",
+              "format": "iri"
             },
             {
               "type": "array",
